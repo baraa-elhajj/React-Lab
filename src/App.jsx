@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./App.css";
+import Test from "./apps/test";
 
 const apps = {
   // TODO: list the apps here..
+  Test: <Test />,
 };
 
 export default function App() {
