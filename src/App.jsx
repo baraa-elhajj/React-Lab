@@ -3,7 +3,7 @@ import "./App.css";
 import appsMap from "./AppsMap";
 
 export default function App() {
-  const [selectedApp, setSelectedApp] = useState("App");
+  const [selectedApp, setSelectedApp] = useState("Test");
 
   return (
     <div className="container">
