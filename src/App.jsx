@@ -1,29 +1,46 @@
 import { useState } from "react";
 import "./App.css";
 import appsMap from "./AppsMap";
+import {
+  Box,
+  Grid,
+  GridItem,
+  Flex,
+  VStack,
+  Button,
+  Heading,
+} from "@chakra-ui/react";
 
 export default function App() {
   const [selectedApp, setSelectedApp] = useState("Test");
 
   return (
-    <div className="container">
-      <aside className="sidebar">
-        <h3>React Lab</h3>
-        <ul className="appList">
+    <Flex minH="100vh">
+      <Box w="200px" bg="teal.600" color="white" p={4}>
+        <Heading size="md" mb={4}>
+          React Lab
+        </Heading>
+        <VStack align="stretch" spacing={2}>
           {Object.keys(appsMap).map((appName) => (
-            <li key={appName}>
-              <button
-                className="button"
-                onClick={() => setSelectedApp(appName)}
-              >
-                {appName}
-              </button>
-            </li>
+            <Button
+              key={appName}
+              onClick={() => setSelectedApp(appName)}
+              variant="ghost"
+              colorScheme="teal"
+              justifyContent="flex-start"
+            >
+              {appName}
+            </Button>
           ))}
-        </ul>
-      </aside>
+        </VStack>
+      </Box>
 
-      <main className={"main"}>{appsMap[selectedApp]}</main>
-    </div>
+      <Box flex="1" p={8}>
+        <Heading size="lg" mb={4}>
+          {selectedApp} App
+        </Heading>
+        {appsMap[selectedApp]}
+      </Box>
+    </Flex>
   );
 }
