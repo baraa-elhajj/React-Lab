@@ -1,18 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 import appsMap from "./AppsMap";
-import {
-  Box,
-  Grid,
-  GridItem,
-  Flex,
-  VStack,
-  Button,
-  Heading,
-} from "@chakra-ui/react";
+import { Box, Flex, VStack, Button, Heading } from "@chakra-ui/react";
 
 export default function App() {
-  const [selectedApp, setSelectedApp] = useState("Test");
+  const [selectedApp, setSelectedApp] = useState(Object.keys(appsMap)[0]);
 
   return (
     <Flex minH="100vh">
