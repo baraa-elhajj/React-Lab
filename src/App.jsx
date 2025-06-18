@@ -28,7 +28,7 @@ export default function App() {
       </Box>
 
       <Box flex="1" p={8}>
-        <Heading size="lg" mb={4}>
+        <Heading size="xl" mb={4}>
           {selectedApp} App
         </Heading>
         {appsMap[selectedApp]}
