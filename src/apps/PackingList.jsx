@@ -14,6 +14,13 @@ function Item({ name, isPacked }) {
   );
 }
 
+// another approach
+function Item2({ name, isPacked }) {
+  let itemContent = name + (isPacked ? " ✅" : " ❌");
+
+  return <li className="item">{itemContent}</li>;
+}
+
 export default function PackingList() {
   return (
     <section>
@@ -30,6 +37,17 @@ export default function PackingList() {
         <Item name="Eraser" isPacked={false} />
         <Item name="Pen" isPacked={true} />
         <Item name="Ruler" isPacked={true} />
+      </ul>
+
+      <br />
+      <Text textStyle="xl" fontWeight="bold">
+        My 2nd Packing List:
+      </Text>
+      <ul>
+        <Item2 name="Banana" isPacked={false} />
+        <Item2 name="Watermelon" isPacked={true} />
+        <Item2 name="Rasberry" isPacked={true} />
+        <Item2 name="Peach" isPacked={false} />
       </ul>
     </section>
   );
