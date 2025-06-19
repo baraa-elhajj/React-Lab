@@ -21,6 +21,25 @@ function Chemists() {
   return <ul>{result}</ul>;
 }
 
+function People({ profession }) {
+  const peopleList = people.filter(
+    (person) => person.profession === profession
+  );
+
+  const result = peopleList.map((person) => (
+    <li key={person.id}>
+      <img src={getImageUrl(person)} alt={person.name} />
+      <p>
+        <b>{person.name}:</b>
+        {" " + person.profession + " "}
+        known for {person.accomplishment}
+      </p>
+    </li>
+  ));
+
+  return <ul>{result}</ul>;
+}
+
 export default function PeopleInfo() {
   return (
     <section>
@@ -29,14 +48,18 @@ export default function PeopleInfo() {
         JavaScript’s map() and filter() functions, and learning when to use
         React Keys.
       </Text>
-      <br />
-      <ul>{peopleInfoList}</ul>
 
       <br />
       <Text textStyle="xl" fontWeight="bold">
         Chemists:
       </Text>
       <Chemists />
+
+      <br />
+      <Text textStyle="xl" fontWeight="bold">
+        List by Profession:
+      </Text>
+      <People profession={"physicist"} />
     </section>
   );
 }
