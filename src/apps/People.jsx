@@ -2,14 +2,6 @@ import { Text } from "@chakra-ui/react";
 import { people } from "./data";
 import { getImageUrl } from "./utils";
 
-const peopleArray = [
-  "Creola Katherine Johnson: mathematician",
-  "Mario José Molina-Pasquel Henríquez: chemist",
-  "Mohammad Abdus Salam: physicist",
-  "Percy Lavon Julian: chemist",
-  "Subrahmanyan Chandrasekhar: astrophysicist",
-];
-
 function Chemists() {
   const chemistsList = people.filter(
     (person) => person.profession === "chemist"
@@ -30,7 +22,6 @@ function Chemists() {
 }
 
 export default function PeopleInfo() {
-  const peopleInfoList = peopleArray.map((person) => <li>{person}</li>);
   return (
     <section>
       <Text textStyle="sm" fontWeight="light">
