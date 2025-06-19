@@ -21,6 +21,15 @@ function Item2({ name, isPacked }) {
   return <li className="item">{itemContent}</li>;
 }
 
+// using &&
+function Item3({ name, importance }) {
+  return (
+    <li className="item">
+      {name} {importance > 0 && <em>(Importance: {importance})</em>}
+    </li>
+  );
+}
+
 export default function PackingList() {
   return (
     <section>
@@ -48,6 +57,16 @@ export default function PackingList() {
         <Item2 name="Watermelon" isPacked={true} />
         <Item2 name="Rasberry" isPacked={true} />
         <Item2 name="Peach" isPacked={false} />
+      </ul>
+
+      <br />
+      <Text textStyle="xl" fontWeight="bold">
+        My 3rd Packing List:
+      </Text>
+      <ul>
+        <Item3 name="PC" importance={8} />
+        <Item3 name="Mouse" importance={0} />
+        <Item3 name="Monitor" importance={3} />
       </ul>
     </section>
   );
