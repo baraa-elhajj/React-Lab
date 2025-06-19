@@ -1,11 +1,7 @@
 import { Text } from "@chakra-ui/react";
 
 function Item({ name, isPacked }) {
-  return isPacked ? (
-    <li className="item">{name} ✅</li>
-  ) : (
-    <li className="item">{name}</li>
-  );
+  return <li className="item">{isPacked ? name + " ✅" : name}</li>;
 }
 
 export default function PackingList() {
