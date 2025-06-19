@@ -35,6 +35,17 @@ function People({ profession }) {
         known for {person.accomplishment}
       </p>
     </li>
+
+    // NOTE: When each item needs to render several DOM nodes, surround the result block with React's <Fragment>
+    // TODO: Create a component to test this out.
+    /*
+    const listItems = people.map(person =>
+        <Fragment key={person.id}>
+            <h1>{person.name}</h1>
+            <p>{person.bio}</p>
+        </Fragment>
+    );
+    */
   ));
 
   return <ul>{result}</ul>;
