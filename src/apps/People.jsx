@@ -16,7 +16,7 @@ function Chemists() {
   );
 
   const result = chemistsList.map((person) => (
-    <li>
+    <li key={person.id}>
       <img src={getImageUrl(person)} alt={person.name} />
       <p>
         <b>{person.name}:</b>
