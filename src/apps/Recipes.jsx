@@ -1,5 +1,6 @@
 import { recipes } from "./data";
 import { Fragment } from "react";
+import { Text } from "@chakra-ui/react";
 import { Divider } from "./utils";
 
 function Ingredients({ recipeIngredients }) {
@@ -10,7 +11,9 @@ export default function RecipeList() {
   // Implicit return "... => ()", instead of using the return keyword.
   const recipesList = recipes.map((recipe) => (
     <Fragment key={recipe.id}>
-      <h2>{recipe.name}</h2>
+      <Text textStyle="m" fontWeight="bold">
+        {recipe.name}:
+      </Text>
       <ul>
         <Ingredients recipeIngredients={recipe.ingredients} />
       </ul>
@@ -19,8 +22,15 @@ export default function RecipeList() {
 
   return (
     <div>
-      <h1>Recipes</h1>
+      <Text textStyle="sm" fontWeight="light">
+        <b>Description</b>: Rendering several DOM nodes for each item of list.
+        Used mainly React's Fragment, map(), and ChakraUI.
+      </Text>
       <Divider />
+      <Text textStyle="xl" fontWeight="bold">
+        Recipe List
+      </Text>
+      <br />
       {recipesList}
     </div>
   );
