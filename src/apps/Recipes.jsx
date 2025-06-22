@@ -4,7 +4,9 @@ import { Text } from "@chakra-ui/react";
 import Header from "../components/ui/custom/Header";
 
 function Ingredients({ recipeIngredients }) {
-  return recipeIngredients.map((ingredient) => <li>{ingredient}</li>);
+  return recipeIngredients.map((ingredient, index) => (
+    <li key={index}>{ingredient}</li>
+  ));
 }
 
 export default function RecipeList() {
@@ -17,6 +19,7 @@ export default function RecipeList() {
       <ul>
         <Ingredients recipeIngredients={recipe.ingredients} />
       </ul>
+      <br />
     </Fragment>
   ));
 
