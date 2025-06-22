@@ -1,6 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import { people } from "./data";
-import { getImageUrl, Divider } from "./utils";
+import { getImageUrl } from "./utils";
+import Divider from "../components/ui/Custom/Divider";
 
 function PersonInfo({ person }) {
   return (

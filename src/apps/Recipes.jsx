@@ -1,7 +1,7 @@
 import { recipes } from "./data";
 import { Fragment } from "react";
 import { Text } from "@chakra-ui/react";
-import { Divider } from "./utils";
+import Divider from "../components/ui/Custom/Divider";
 
 function Ingredients({ recipeIngredients }) {
   return recipeIngredients.map((ingredient) => <li>{ingredient}</li>);

@@ -1,5 +1,5 @@
 import { Text } from "@chakra-ui/react";
-import { Divider } from "./utils";
+import Divider from "../components/ui/Custom/Divider";
 
 function Item({ name, isPacked }) {
   return (

@@ -1,6 +1,6 @@
 import Profile from "./Profile";
 import { Text } from "@chakra-ui/react";
-import { Divider } from "./utils";
+import Divider from "../components/ui/Custom/Divider";
 
 export default function Gallery() {
   return (
