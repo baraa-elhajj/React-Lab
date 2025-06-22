@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react";
 import { people } from "./data";
-import { getImageUrl } from "./utils";
+import { getImageUrl, Divider } from "./utils";
 
 function PersonInfo({ person }) {
   return (
@@ -49,8 +49,7 @@ export default function PeopleInfo() {
         JavaScript’s map() and filter() functions, and learning when to use
         React Keys.
       </Text>
-
-      <br />
+      <Divider />
       <Text textStyle="xl" fontWeight="bold">
         Chemists:
       </Text>

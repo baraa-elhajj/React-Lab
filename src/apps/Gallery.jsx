@@ -1,5 +1,6 @@
 import Profile from "./Profile";
 import { Text } from "@chakra-ui/react";
+import { Divider } from "./utils";
 
 export default function Gallery() {
   return (
@@ -8,7 +9,7 @@ export default function Gallery() {
         <b>Description</b>: Applying import/export keywords, to display a
         component inside another.
       </Text>
-      <br />
+      <Divider />
       <Text textStyle="xl" fontWeight="bold">
         Amazing scientists
       </Text>

@@ -1,5 +1,6 @@
 import { recipes } from "./data";
 import { Fragment } from "react";
+import { Divider } from "./utils";
 
 function Ingredients({ recipeIngredients }) {
   return recipeIngredients.map((ingredient) => <li>{ingredient}</li>);
@@ -19,6 +20,7 @@ export default function RecipeList() {
   return (
     <div>
       <h1>Recipes</h1>
+      <Divider />
       {recipesList}
     </div>
   );

@@ -1,4 +1,5 @@
 import { Text } from "@chakra-ui/react";
+import { Divider } from "./utils";
 
 function Item({ name, isPacked }) {
   return (
@@ -37,7 +38,7 @@ export default function PackingList() {
         <b>Description</b>: Applying conditional rendering on items, to display
         a ✅ next to the items having the prop isPacked set to true.
       </Text>
-      <br />
+      <Divider />
       <Text textStyle="xl" fontWeight="bold">
         My Packing List:
       </Text>
