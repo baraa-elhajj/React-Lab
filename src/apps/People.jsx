@@ -18,7 +18,7 @@ function PersonInfo({ person }) {
 function Chemists() {
   const chemistsList = people
     .filter((p) => p.profession === "chemist")
-    .map((p) => <PersonInfo person={p} />);
+    .map((p) => <PersonInfo key={p.id} person={p} />);
 
   return <ul>{chemistsList}</ul>;
 }
@@ -26,7 +26,7 @@ function Chemists() {
 function People({ profession }) {
   const peopleList = people
     .filter((person) => person.profession === profession)
-    .map((p) => <PersonInfo person={p} />);
+    .map((p) => <PersonInfo key={p.id} person={p} />);
 
   // NOTE: When each item needs to render several DOM nodes, surround the result block with React's <Fragment>
   // TODO: Create a component to test this out.
