@@ -1,7 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import { people } from "./data";
 import { getImageUrl } from "./utils";
-import Divider from "../components/ui/Custom/Divider";
+import Header from "../components/ui/custom/Header";
 
 function PersonInfo({ person }) {
   return (
@@ -45,12 +45,12 @@ function People({ profession }) {
 export default function PeopleInfo() {
   return (
     <section>
-      <Text textStyle="sm" fontWeight="light">
-        <b>Description</b>: Rendering components from an array using
+      <Header
+        description="Rendering components from an array using
         JavaScript’s map() and filter() functions, and learning when to use
-        React Keys.
-      </Text>
-      <Divider />
+        React Keys."
+      />
+
       <Text textStyle="xl" fontWeight="bold">
         Chemists:
       </Text>

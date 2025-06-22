@@ -1,15 +1,15 @@
 import Profile from "./Profile";
 import { Text } from "@chakra-ui/react";
-import Divider from "../components/ui/Custom/Divider";
+import Header from "../components/ui/custom/Header";
 
 export default function Gallery() {
   return (
     <section>
-      <Text textStyle="sm" fontWeight="light">
-        <b>Description</b>: Applying import/export keywords, to display a
-        component inside another.
-      </Text>
-      <Divider />
+      <Header
+        description="Applying import/export keywords, to display a
+        component inside another."
+      />
+
       <Text textStyle="xl" fontWeight="bold">
         Amazing scientists
       </Text>

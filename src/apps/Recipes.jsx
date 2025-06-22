@@ -1,7 +1,7 @@
 import { recipes } from "./data";
 import { Fragment } from "react";
 import { Text } from "@chakra-ui/react";
-import Divider from "../components/ui/Custom/Divider";
+import Header from "../components/ui/custom/Header";
 
 function Ingredients({ recipeIngredients }) {
   return recipeIngredients.map((ingredient) => <li>{ingredient}</li>);
@@ -22,11 +22,8 @@ export default function RecipeList() {
 
   return (
     <div>
-      <Text textStyle="sm" fontWeight="light">
-        <b>Description</b>: Rendering several DOM nodes for each item of list.
-        Used mainly React's Fragment, map(), and ChakraUI.
-      </Text>
-      <Divider />
+      <Header description="Rendering several DOM nodes for each item of list. Used mainly React's Fragment, map(), and ChakraUI." />
+
       <Text textStyle="xl" fontWeight="bold">
         Recipe List
       </Text>
