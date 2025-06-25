@@ -1,8 +1,15 @@
-export function Clock({ time }) {
+import Header from "../components/ui/custom/Header";
+import { Text } from "@chakra-ui/react";
+
+function Clock({ time }) {
   const hours = time.getHours();
   let className = hours >= 0 && hours <= 6 ? "night" : "day";
 
-  return <h1 className={className}>{time.toLocaleTimeString()}</h1>;
+  return (
+    <Text textStyle="lg" fontWeight="bold" className={className}>
+      {time.toLocaleTimeString()} ({className})
+    </Text>
+  );
 }
 
 export default function ClockApp() {
@@ -10,8 +17,7 @@ export default function ClockApp() {
 
   return (
     <div>
-      <Header description="Rendering several DOM nodes for each item of list. Used mainly React's Fragment, map(), and ChakraUI." />
-
+      <Header description="A simple app displaying the current time and wether its day or night based on the time condition." />
       <Clock time={now} />
     </div>
   );
