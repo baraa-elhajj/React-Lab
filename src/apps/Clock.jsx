@@ -1,6 +1,7 @@
 import Header from "../components/ui/custom/Header";
 import { Text } from "@chakra-ui/react";
 
+// TODO: Make it live
 function Clock({ time }) {
   const hours = time.getHours();
   let className = hours >= 0 && hours <= 6 ? "night" : "day";
