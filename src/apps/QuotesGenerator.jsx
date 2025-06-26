@@ -20,7 +20,7 @@ function Quotes({ children }) {
       <br />
 
       <Button onClick={next} size="xs" variant="surface">
-        Inspire me again
+        Change Quote
       </Button>
 
       <br />
@@ -34,7 +34,7 @@ function Quotes({ children }) {
 }
 
 function Copyrights({ year }) {
-  return "Copyright ©" + year + ". All Rights Reserved.";
+  return "©" + year + " React Lab. All Rights Reserved.";
 }
 
 export default function QuotesGenerator() {
