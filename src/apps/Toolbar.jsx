@@ -22,6 +22,7 @@ function PlayButton({ movieName }) {
 function PauseButton() {
   return (
     <CustomButton onClick={() => alert("Movie Paused")}>Pause</CustomButton>
+    // If the parent component has its unique event handler, use e.stopPropagation() to stop it.
   );
 }
 
