@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Text, HStack, Image } from "@chakra-ui/react";
 import { people } from "./data";
 import { getImageUrl } from "./utils";
 import Header from "../components/ui/custom/Header";
@@ -6,12 +6,21 @@ import Header from "../components/ui/custom/Header";
 function PersonInfo({ person }) {
   return (
     <li key={person.id}>
-      <img src={getImageUrl(person)} alt={person.name} />
-      <p>
-        <b>{person.name}:</b>
-        {" " + person.profession + " "}
-        known for {person.accomplishment}
-      </p>
+      <HStack wrap="wrap" gap="5">
+        {/* <img src={getImageUrl(person)} alt={person.name} /> */}
+        <Image
+          src={getImageUrl(person)}
+          boxSize="100px"
+          borderRadius="full"
+          fit="cover"
+          alt={person.name}
+        />
+        <p>
+          <b>{person.name}:</b>
+          {" " + person.profession + " "}
+          known for {person.accomplishment}
+        </p>
+      </HStack>
     </li>
   );
 }
@@ -54,12 +63,16 @@ export default function PeopleInfo() {
       <Text textStyle="xl" fontWeight="bold">
         Chemists:
       </Text>
+      <br />
       <Chemists />
 
       <br />
+      <br />
+
       <Text textStyle="xl" fontWeight="bold">
         List by Profession:
       </Text>
+      <br />
       <People profession={"physicist"} />
     </section>
   );

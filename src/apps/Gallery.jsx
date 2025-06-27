@@ -1,5 +1,5 @@
 import Profile from "./Profile";
-import { Text } from "@chakra-ui/react";
+import { Text, HStack } from "@chakra-ui/react";
 import Header from "../components/ui/custom/Header";
 
 export default function Gallery() {
@@ -13,9 +13,11 @@ export default function Gallery() {
       <Text textStyle="xl" fontWeight="bold">
         Amazing scientists
       </Text>
-      <Profile />
-      <Profile />
-      <Profile />
+      <HStack wrap="wrap" gap="5">
+        <Profile />
+        <Profile />
+        <Profile />
+      </HStack>
     </section>
   );
 }
