@@ -4,6 +4,7 @@ import PeopleInfo from "./apps/People";
 import RecipeList from "./apps/Recipes";
 import ClockApp from "./apps/Clock";
 import QuotesGenerator from "./apps/QuotesGenerator";
+import Toolbar from "./apps/Toolbar";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -12,6 +13,7 @@ const appsMap = {
   Recipe: <RecipeList />,
   Clock: <ClockApp />,
   "Quotes Generator": <QuotesGenerator />,
+  Toolbar: <Toolbar />,
 };
 
 export default appsMap;
