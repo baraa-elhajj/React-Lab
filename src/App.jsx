@@ -17,9 +17,8 @@ export default function App() {
             <Button
               key={appName}
               onClick={() => setSelectedApp(appName)}
-              variant="ghost"
-              colorScheme="teal"
               justifyContent="flex-start"
+              variant="surface"
             >
               {appName}
             </Button>
