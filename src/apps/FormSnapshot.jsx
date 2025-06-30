@@ -1,6 +1,13 @@
 import { useState } from "react";
 import Header from "../components/ui/custom/Header";
-import { VStack, HStack, Textarea, RadioGroup, Button } from "@chakra-ui/react";
+import {
+  VStack,
+  HStack,
+  Textarea,
+  RadioGroup,
+  Button,
+  Text,
+} from "@chakra-ui/react";
 
 export default function Form() {
   const [to, setTo] = useState("Alice");
@@ -31,7 +38,9 @@ export default function Form() {
       <form onSubmit={handleSubmit}>
         <VStack wrap="wrap" gap="3" alignItems="flex-start">
           <label>
-            Send To:{" "}
+            <Text as="span" textStyle="sm">
+              Send To:{" "}
+            </Text>
             <select value={to} onChange={(e) => setTo(e.target.value)}>
               <option value="Alice">Alice</option>
               <option value="Bob">Bob</option>
@@ -59,7 +68,7 @@ export default function Form() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             size="sm"
-            maxW="sm"
+            maxW="xs"
             resize={resize}
           ></Textarea>
           <Button type="submit" size="2xs" colorPalette="blue" color="white">
