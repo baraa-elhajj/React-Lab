@@ -1,9 +1,16 @@
 import { useState } from "react";
 import Header from "../components/ui/custom/Header";
+import { VStack, HStack, Textarea, RadioGroup, Button } from "@chakra-ui/react";
 
 export default function Form() {
   const [to, setTo] = useState("Alice");
   const [message, setMessage] = useState("Hello");
+  const [resize, setResize] = useState("horizontal");
+  const radioItems = [
+    { label: "Horizental", value: "horizontal" },
+    { label: "Vertical", value: "vertical" },
+    { label: "None", value: "none" },
+  ];
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,20 +27,45 @@ export default function Form() {
       a 'snapshot' of the state for that render. Event handlers created in the past have the state 
       values from the render in which they were created."
       />
+
       <form onSubmit={handleSubmit}>
-        <label>
-          To:{" "}
-          <select value={to} onChange={(e) => setTo(e.target.value)}>
-            <option value="Alice">Alice</option>
-            <option value="Bob">Bob</option>
-          </select>
-        </label>
-        <textarea
-          placeholder="Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button type="submit">Send</button>
+        <VStack wrap="wrap" gap="3" alignItems="flex-start">
+          <label>
+            Send To:{" "}
+            <select value={to} onChange={(e) => setTo(e.target.value)}>
+              <option value="Alice">Alice</option>
+              <option value="Bob">Bob</option>
+            </select>
+          </label>
+          <RadioGroup.Root
+            defaultValue={resize}
+            onChange={(e) => setResize(e.target.value)}
+            size="sm"
+            maxW="sm"
+            colorPalette="blue"
+          >
+            <HStack gap="5">
+              {radioItems.map((item) => (
+                <RadioGroup.Item key={item.value} value={item.value}>
+                  <RadioGroup.ItemHiddenInput />
+                  <RadioGroup.ItemIndicator />
+                  <RadioGroup.ItemText>{item.label}</RadioGroup.ItemText>
+                </RadioGroup.Item>
+              ))}
+            </HStack>
+          </RadioGroup.Root>
+          <Textarea
+            placeholder="Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            size="sm"
+            maxW="sm"
+            resize={resize}
+          ></Textarea>
+          <Button type="submit" size="2xs" colorPalette="blue" color="white">
+            Send
+          </Button>
+        </VStack>
       </form>
     </>
   );
