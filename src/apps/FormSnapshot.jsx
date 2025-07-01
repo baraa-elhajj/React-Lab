@@ -18,12 +18,15 @@ export default function Form() {
     { label: "Vertical", value: "vertical" },
     { label: "None", value: "none" },
   ];
+  const [loading, setLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     setTimeout(() => {
       alert(`Sent "${message}" to ${to}`);
-    }, 5000);
+      setLoading(false);
+    }, 2000);
   }
 
   return (
@@ -71,7 +74,14 @@ export default function Form() {
             maxW="xs"
             resize={resize}
           ></Textarea>
-          <Button type="submit" size="2xs" colorPalette="blue" color="white">
+          <Button
+            type="submit"
+            size="2xs"
+            colorPalette="blue"
+            color="white"
+            loading={loading}
+            loadingText="Sending"
+          >
             Send
           </Button>
         </VStack>
