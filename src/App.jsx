@@ -13,12 +13,14 @@ export default function App() {
           React Lab
         </Heading>
         <VStack align="stretch" spacing={2}>
-          {Object.keys(appsMap).map((appName) => (
+          {Object.keys(appsMap).map((appName, index) => (
             <Button
-              key={appName}
+              key={index}
               onClick={() => setSelectedApp(appName)}
               justifyContent="flex-start"
               variant="surface"
+              border="2px solid transparent"
+              borderColor={selectedApp === appName ? "teal.700" : ""}
             >
               {appName}
             </Button>
