@@ -8,6 +8,7 @@ import Toolbar from "./apps/Toolbar";
 import Restaurants from "./apps/Restaurants";
 import Form from "./apps/FormSnapshot";
 import Counter from "./apps/Counter";
+import Pointer from "./apps/Pointer";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -20,6 +21,7 @@ const appsMap = {
   Restaurants: <Restaurants />,
   "Form Snapshot": <Form />,
   Counter: <Counter />,
+  Pointer: <Pointer />,
 };
 
 export default appsMap;
