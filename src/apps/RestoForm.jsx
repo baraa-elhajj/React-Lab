@@ -52,7 +52,8 @@ export default function RestoForm() {
     <>
       <Header
         description="A quick form to test copying nested objects with the spread syntax, 
-    and ultimately avoid state mutation."
+    and ultimately avoid state mutation. Applied useState() hook with an object having
+    all the form input values instead of creating a state for every form input."
       />
       <label>
         Name:
