@@ -12,6 +12,7 @@ export default function App() {
         <Heading size="md" mb={4}>
           React Lab
         </Heading>
+        {/* TODO: move to a list and fix overflow. */}
         <VStack align="stretch" spacing={2}>
           {Object.keys(appsMap).map((appName, index) => (
             <Button
