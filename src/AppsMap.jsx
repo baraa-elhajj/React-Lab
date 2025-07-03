@@ -7,6 +7,7 @@ import QuotesGenerator from "./apps/QuotesGenerator";
 import Toolbar from "./apps/Toolbar";
 import Restaurants from "./apps/Restaurants";
 import Form from "./apps/FormSnapshot";
+import Counter from "./apps/Counter";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -18,6 +19,7 @@ const appsMap = {
   Toolbar: <Toolbar />,
   Restaurants: <Restaurants />,
   "Form Snapshot": <Form />,
+  Counter: <Counter />,
 };
 
 export default appsMap;
