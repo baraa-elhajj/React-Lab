@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <Flex minH="100vh">
-      <Box w="200px" bg="teal.600" color="white" p={4}>
+      <Box w="200px" bg="teal.600" color="white" p={4} overflowY="auto">
         <Heading size="md" mb={4}>
           React Lab
         </Heading>
@@ -28,7 +28,7 @@ export default function App() {
         </VStack>
       </Box>
 
-      <Box flex="1" p={8}>
+      <Box flex="1" p={8} overflow="hidden">
         <Heading size="xl" mb={4}>
           {selectedApp} App
         </Heading>
