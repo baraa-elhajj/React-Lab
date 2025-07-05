@@ -40,12 +40,13 @@ export default function RestoForm() {
 
   // useImmer() implementation
   const [person2, setPerson2] = useImmer({
-    name: "Mohammad Abdul Salam",
-    profession: "Physicist",
+    name: "Percy Lavon Julian",
+    profession: "Chemist",
     info: {
-      accomplishment: "electromagnetism theory",
+      accomplishment:
+        "pioneering cortisone drugs, steroids and birth control pills",
       city: "Pakistan",
-      imageId: "bE7W1ji",
+      imageId: "IOjWm71",
     },
   });
 
@@ -75,7 +76,9 @@ export default function RestoForm() {
     having all the form input values instead of creating a state for every form input."
       />
 
-      <Text fontStyle="md">Copy objects with spread syntax:</Text>
+      <Text fontStyle="italic" color="gray.600">
+        Copy objects with spread syntax (shallow copy - 1 level deep):
+      </Text>
       <br />
       <HStack gap="5">
         <VStack gap="2">
@@ -112,19 +115,21 @@ export default function RestoForm() {
             fit="cover"
             alt={person.name}
           />
-          <p>
+          <Text maxW="sm">
             {person.name}
             <br />
             is a {person.profession} from {person.info.city}
             <br />
             He is specialized in {person.info.accomplishment}.
-          </p>
+          </Text>
         </VStack>
       </HStack>
 
       <br />
       <br />
-      <Text fontStyle="md">Copy objects with useImmer():</Text>
+      <Text fontStyle="italic" color="gray.600">
+        Copy objects with useImmer() (to reduce repetetive copy):
+      </Text>
       <br />
       <HStack gap="5">
         <VStack gap="2">
@@ -155,19 +160,19 @@ export default function RestoForm() {
         </VStack>
         <VStack gap="3" alignItems="flex-start">
           <Image
-            src={"https://i.imgur.com/bE7W1jis.jpg"}
+            src={"https://i.imgur.com/IOjWm71.jpg"}
             boxSize="100px"
             borderRadius="full"
             fit="cover"
             alt={person2.name}
           />
-          <p>
+          <Text maxW="sm">
             {person2.name}
             <br />
             is a {person2.profession} from {person2.info.city}
             <br />
             He is specialized in {person2.info.accomplishment}.
-          </p>
+          </Text>
         </VStack>
       </HStack>
     </>
