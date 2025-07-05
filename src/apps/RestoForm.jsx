@@ -75,7 +75,7 @@ export default function RestoForm() {
     having all the form input values instead of creating a state for every form input."
       />
 
-      <Text fontStyle="md">Copy with spread syntax:</Text>
+      <Text fontStyle="md">Copy objects with spread syntax:</Text>
       <br />
       <HStack gap="5">
         <VStack gap="2">
@@ -124,7 +124,7 @@ export default function RestoForm() {
 
       <br />
       <br />
-      <Text fontStyle="md">Copy with useImmer():</Text>
+      <Text fontStyle="md">Copy objects with useImmer():</Text>
       <br />
       <HStack gap="5">
         <VStack gap="2">
