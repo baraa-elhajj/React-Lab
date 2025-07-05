@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useImmer } from "use-immer";
 import Header from "../components/ui/custom/Header";
 import { Field, Input, Image, HStack, VStack, Text } from "@chakra-ui/react";
 
@@ -12,8 +13,6 @@ export default function RestoForm() {
       imageId: "bE7W1ji",
     },
   });
-
-  //   TODO: implement useImmer()
 
   function handleNameChange(e) {
     setPerson({
@@ -36,6 +35,35 @@ export default function RestoForm() {
         ...person.info,
         city: e.target.value,
       },
+    });
+  }
+
+  // useImmer() implementation
+  const [person2, setPerson2] = useImmer({
+    name: "Mohammad Abdul Salam",
+    profession: "Physicist",
+    info: {
+      accomplishment: "electromagnetism theory",
+      city: "Pakistan",
+      imageId: "bE7W1ji",
+    },
+  });
+
+  function handleNameChange2(e) {
+    setPerson2((draft) => {
+      draft.name = e.target.value;
+    });
+  }
+
+  function handleProfessionChange2(e) {
+    setPerson2((draft) => {
+      draft.profession = e.target.value;
+    });
+  }
+
+  function handleCityChange2(e) {
+    setPerson2((draft) => {
+      draft.info.city = e.target.value;
     });
   }
 
@@ -104,24 +132,24 @@ export default function RestoForm() {
             <Field.Label>Name</Field.Label>
             <Input
               placeholder="John Doe"
-              value={person.name}
-              onChange={handleNameChange}
+              value={person2.name}
+              onChange={handleNameChange2}
             />
           </Field.Root>
           <Field.Root maxW="xs">
             <Field.Label>Profession</Field.Label>
             <Input
               placeholder="Scientist"
-              value={person.profession}
-              onChange={handleProfessionChange}
+              value={person2.profession}
+              onChange={handleProfessionChange2}
             />
           </Field.Root>
           <Field.Root maxW="xs">
             <Field.Label>City</Field.Label>
             <Input
               placeholder="Qatar"
-              value={person.info.city}
-              onChange={handleCityChange}
+              value={person2.info.city}
+              onChange={handleCityChange2}
             />
           </Field.Root>
         </VStack>
@@ -131,14 +159,14 @@ export default function RestoForm() {
             boxSize="100px"
             borderRadius="full"
             fit="cover"
-            alt={person.name}
+            alt={person2.name}
           />
           <p>
-            {person.name}
+            {person2.name}
             <br />
-            is a {person.profession} from {person.info.city}
+            is a {person2.profession} from {person2.info.city}
             <br />
-            He is specialized in {person.info.accomplishment}.
+            He is specialized in {person2.info.accomplishment}.
           </p>
         </VStack>
       </HStack>
