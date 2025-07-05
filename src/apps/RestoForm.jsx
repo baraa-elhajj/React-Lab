@@ -43,8 +43,8 @@ export default function RestoForm() {
     <>
       <Header
         description="A quick form to test copying nested objects with the spread syntax, 
-    and ultimately avoid state mutation. Applied useState() hook with an object having
-    all the form input values instead of creating a state for every form input."
+    or useImmer(), ultimately avoiding state mutation. Applied useState() hook with an object 
+    having all the form input values instead of creating a state for every form input."
       />
 
       <Text fontStyle="md">Copy with spread syntax:</Text>
