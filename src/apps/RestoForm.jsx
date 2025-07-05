@@ -1,13 +1,15 @@
 import { useState } from "react";
 import Header from "../components/ui/custom/Header";
+import { Field, Input, Image, HStack, VStack } from "@chakra-ui/react";
 
 export default function RestoForm() {
   const [person, setPerson] = useState({
-    name: "Niki de Saint Phalle",
-    artwork: {
-      title: "Blue Nana",
-      city: "Hamburg",
-      image: "https://something.jpg",
+    name: "Mohammad Abdul Salam",
+    profession: "Physicist",
+    info: {
+      accomplishment: "electromagnetism theory",
+      city: "Pakistan",
+      imageId: "bE7W1ji",
     },
   });
 
@@ -18,32 +20,19 @@ export default function RestoForm() {
     });
   }
 
-  function handleTitleChange(e) {
+  function handleProfessionChange(e) {
     setPerson({
       ...person,
-      artwork: {
-        ...person.artwork,
-        title: e.target.value,
-      },
+      profession: e.target.value,
     });
   }
 
   function handleCityChange(e) {
     setPerson({
       ...person,
-      artwork: {
-        ...person.artwork,
+      info: {
+        ...person.info,
         city: e.target.value,
-      },
-    });
-  }
-
-  function handleImageChange(e) {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        image: e.target.value,
       },
     });
   }
@@ -55,30 +44,51 @@ export default function RestoForm() {
     and ultimately avoid state mutation. Applied useState() hook with an object having
     all the form input values instead of creating a state for every form input."
       />
-      <label>
-        Name:
-        <input value={person.name} onChange={handleNameChange} />
-      </label>
-      <label>
-        Title:
-        <input value={person.artwork.title} onChange={handleTitleChange} />
-      </label>
-      <label>
-        City:
-        <input value={person.artwork.city} onChange={handleCityChange} />
-      </label>
-      <label>
-        Image:
-        <input value={person.artwork.image} onChange={handleImageChange} />
-      </label>
-      <p>
-        <i>{person.artwork.title}</i>
-        {" by "}
-        {person.name}
-        <br />
-        (located in {person.artwork.city})
-      </p>
-      <img src={person.artwork.image} alt={person.artwork.title} />
+
+      <HStack gap="5">
+        <VStack gap="2">
+          <Field.Root maxW="xs">
+            <Field.Label>Name</Field.Label>
+            <Input
+              placeholder="John Doe"
+              value={person.name}
+              onChange={handleNameChange}
+            />
+          </Field.Root>
+          <Field.Root maxW="xs">
+            <Field.Label>Profession</Field.Label>
+            <Input
+              placeholder="Scientist"
+              value={person.profession}
+              onChange={handleProfessionChange}
+            />
+          </Field.Root>
+          <Field.Root maxW="xs">
+            <Field.Label>City</Field.Label>
+            <Input
+              placeholder="Qatar"
+              value={person.info.city}
+              onChange={handleCityChange}
+            />
+          </Field.Root>
+        </VStack>
+        <VStack gap="3" alignItems="flex-start">
+          <Image
+            src={"https://i.imgur.com/bE7W1jis.jpg"}
+            boxSize="100px"
+            borderRadius="full"
+            fit="cover"
+            alt={person.name}
+          />
+          <p>
+            {person.name}
+            <br />
+            is a {person.profession} from {person.info.city}
+            <br />
+            He is specialized in {person.info.accomplishment}.
+          </p>
+        </VStack>
+      </HStack>
     </>
   );
 }
