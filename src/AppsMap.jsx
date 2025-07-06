@@ -10,6 +10,7 @@ import Form from "./apps/FormSnapshot";
 import Counter from "./apps/Counter";
 import Pointer from "./apps/Pointer";
 import RestoForm from "./apps/RestoForm";
+import Todo from "./apps/Todo";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -24,6 +25,7 @@ const appsMap = {
   Counter: <Counter />,
   Pointer: <Pointer />,
   "Restaurant Form": <RestoForm />,
+  Todo: <Todo />,
 };
 
 export default appsMap;
