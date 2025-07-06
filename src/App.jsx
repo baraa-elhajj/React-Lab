@@ -7,12 +7,18 @@ export default function App() {
   const [selectedApp, setSelectedApp] = useState(Object.keys(appsMap)[0]);
 
   return (
-    <Flex minH="100vh">
-      <Box w="200px" bg="teal.600" color="white" p={4} overflowY="auto">
-        <Heading size="md" mb={4}>
+    <Flex h="100vh">
+      <Box
+        h="100vh"
+        w="200px"
+        bg="teal.600"
+        color="white"
+        p={4}
+        overflowY="auto"
+      >
+        <Heading size="md" mb="4">
           React Lab
         </Heading>
-        {/* TODO: move to a list and fix overflow. */}
         <VStack align="stretch" spacing={2}>
           {Object.keys(appsMap).map((appName, index) => (
             <Button
@@ -29,7 +35,7 @@ export default function App() {
         </VStack>
       </Box>
 
-      <Box flex="1" p={8} overflow="hidden">
+      <Box flex="1" overflow="auto" h="100vh" p={8}>
         <Heading size="xl" mb={4}>
           {selectedApp} App
         </Heading>
