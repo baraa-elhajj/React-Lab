@@ -8,6 +8,10 @@ export default function List() {
 
   return (
     <>
+      {/* TODO: add header */}
+      {/* ... */}
+      {/* TODO: enhance design with Chakra UI*/}
+      {/* ... */}
       <h1>TODO List:</h1>
       <input value={todo} onChange={(e) => setTodo(e.target.value)} />
       <button
