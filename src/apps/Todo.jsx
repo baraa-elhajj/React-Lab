@@ -34,7 +34,6 @@ export default function TodoList() {
           colorPalette="blue"
           onClick={() => {
             setTodoList([...todoList, { id: nextId++, data: todo }]);
-            console.log("nextId: " + nextId);
           }}
         >
           Add
