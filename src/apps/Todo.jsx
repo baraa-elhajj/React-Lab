@@ -34,6 +34,7 @@ export default function TodoList() {
           colorPalette="blue"
           onClick={() => {
             setTodoList([...todoList, { id: nextId++, data: todo }]);
+            // TODO: prevent adding items if input is empty.
           }}
         >
           Add
@@ -46,6 +47,7 @@ export default function TodoList() {
 
       <List.Root gap="2" variant="plain" align="center">
         {todoList.map((todo, index) => (
+          //   TODO: Check why nextId is giving a duplicated key error.
           <List.Item key={index}>
             <List.Indicator asChild color="green.500">
               <LuCircleCheck />
