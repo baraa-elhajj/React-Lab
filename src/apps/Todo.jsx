@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Header from "../components/ui/custom/Header";
 
 let nextId = 0;
 
@@ -8,8 +9,10 @@ export default function List() {
 
   return (
     <>
-      {/* TODO: add header */}
-      {/* ... */}
+      <Header
+        description="A todo app that tests updating the state of an array 
+      without mutating it using copy spread syntax."
+      ></Header>
       {/* TODO: enhance design with Chakra UI*/}
       {/* ... */}
       <h1>TODO List:</h1>
