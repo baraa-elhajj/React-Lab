@@ -44,7 +44,7 @@ export default function TodoList() {
           >
             Add
           </Button>
-          <Button size="2xs" colorPalette="red" onClick={() => setTodo("")}>
+          <Button size="2xs" colorPalette="red" onClick={() => setTodoList([])}>
             Clear
           </Button>
         </HStack>
