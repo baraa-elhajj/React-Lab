@@ -26,7 +26,7 @@ export default function TodoList() {
       <Text textStyle="sm" fontWeight="bold">
         What's on your mind?
       </Text>
-      <Field.Root required w="2xs">
+      <Field.Root w="2xs">
         <Input
           placeholder="Write something..."
           value={todo}
@@ -37,8 +37,9 @@ export default function TodoList() {
             size="2xs"
             colorPalette="blue"
             onClick={() => {
-              setTodoList([...todoList, { id: nextId++, data: todo }]);
-              // TODO: prevent adding items if input is empty.
+              todo
+                ? setTodoList([...todoList, { id: nextId++, data: todo }])
+                : alert("Write something first!");
             }}
           >
             Add
