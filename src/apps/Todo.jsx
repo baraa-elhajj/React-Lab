@@ -21,7 +21,9 @@ export default function TodoList() {
     <>
       <Header
         description="A todo app that tests updating the state of an array 
-      without mutating it using copy spread syntax."
+      without mutating it using copy spread syntax. Note: Use the method 
+      slice() and two spread syntax to add elements into the array; e.g. 
+      ...array.slice(0, indexToAdd) >> { itemToAdd } >> ...array.slice(indexToAdd)"
       />
       <Text textStyle="sm" fontWeight="bold">
         What's on your mind?
