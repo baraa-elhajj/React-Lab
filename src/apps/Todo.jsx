@@ -1,7 +1,14 @@
 import { useState } from "react";
 import Header from "../components/ui/custom/Header";
-import { Button, Field, HStack, Input, Text, List } from "@chakra-ui/react";
-import { LuCircleCheck } from "react-icons/lu";
+import {
+  Button,
+  Field,
+  HStack,
+  Input,
+  Text,
+  CheckboxCard,
+  VStack,
+} from "@chakra-ui/react";
 
 // Global variable
 let nextId = 0;
@@ -15,47 +22,57 @@ export default function TodoList() {
       <Header
         description="A todo app that tests updating the state of an array 
       without mutating it using copy spread syntax."
-      ></Header>
-      {/* TODO: enhance design with Chakra UI*/}
-      {/* ... */}
+      />
       <Text textStyle="sm" fontWeight="bold">
-        TODO:
+        What's on your mind?
       </Text>
-      <HStack gap="2" alignItems="flex-end">
-        <Field.Root required w="2xs">
-          <Input
-            placeholder="Write something..."
-            value={todo}
-            onChange={(e) => setTodo(e.target.value)}
-          />
-        </Field.Root>
-        <Button
-          size="xs"
-          colorPalette="blue"
-          onClick={() => {
-            setTodoList([...todoList, { id: nextId++, data: todo }]);
-            // TODO: prevent adding items if input is empty.
-          }}
-        >
-          Add
-        </Button>
-        <Button size="xs" colorPalette="red" onClick={() => setTodo("")}>
-          Clear
-        </Button>
-      </HStack>
+      <Field.Root required w="2xs">
+        <Input
+          placeholder="Write something..."
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+        />
+        <HStack>
+          <Button
+            size="2xs"
+            colorPalette="blue"
+            onClick={() => {
+              setTodoList([...todoList, { id: nextId++, data: todo }]);
+              // TODO: prevent adding items if input is empty.
+            }}
+          >
+            Add
+          </Button>
+          <Button size="2xs" colorPalette="red" onClick={() => setTodo("")}>
+            Clear
+          </Button>
+        </HStack>
+      </Field.Root>
+
       <br />
 
-      <List.Root gap="2" variant="plain" align="center">
+      <VStack wrap="wrap" gap="2" alignItems="flex-start">
+        <Text textStyle="sm" fontWeight="bold">
+          TODO List:
+        </Text>
         {todoList.map((todo, index) => (
           //   TODO: Check why nextId is giving a duplicated key error.
-          <List.Item key={index}>
-            <List.Indicator asChild color="green.500">
-              <LuCircleCheck />
-            </List.Indicator>
-            {todo.data}
-          </List.Item>
+          <CheckboxCard.Root
+            key={index}
+            variant="subtle"
+            colorPalette="teal"
+            w="2xs"
+          >
+            <CheckboxCard.HiddenInput />
+            <CheckboxCard.Control>
+              <CheckboxCard.Label>
+                <Text textStyle="sm">{todo.data}</Text>
+              </CheckboxCard.Label>
+              <CheckboxCard.Indicator />
+            </CheckboxCard.Control>
+          </CheckboxCard.Root>
         ))}
-      </List.Root>
+      </VStack>
     </>
   );
 }
