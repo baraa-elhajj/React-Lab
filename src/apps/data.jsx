@@ -166,3 +166,43 @@ export const restaurantsList = [
     alt: "Bright café counter with coffee cups and pastries.",
   },
 ];
+
+export const riddlesList = [
+  {
+    title: "Broken Before Use",
+    content: "What has to be broken before you can use it?",
+    answer: "egg",
+  },
+  {
+    title: "Young and Old",
+    content: "I’m tall when I’m young, and I’m short when I’m old. What am I?",
+    answer: "candle",
+  },
+  {
+    title: "World Traveler",
+    content:
+      "What can travel around the world while staying in the same corner?",
+    answer: "stamp",
+  },
+  {
+    title: "Take and Leave",
+    content: "The more you take, the more you leave behind. What are they?",
+    answer: "footsteps",
+  },
+  {
+    title: "Clapping Hands",
+    content: "What has hands but can’t clap?",
+    answer: "clock",
+  },
+  {
+    title: "Wet and Dry",
+    content: "What gets wetter the more it dries?",
+    answer: "towel",
+  },
+  {
+    title: "No Mouth, No Ears",
+    content:
+      "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
+    answer: "echo",
+  },
+];

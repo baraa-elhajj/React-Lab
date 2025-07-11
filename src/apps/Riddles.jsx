@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { riddlesList } from "./data";
 
 export default function Riddles() {
   const [answer, setAnswer] = useState("");
