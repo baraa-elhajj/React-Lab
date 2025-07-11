@@ -10,8 +10,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+// global variable
+let nextId = 0;
+
 export default function TodoList() {
-  const [nextTodoId, setNextTodoId] = useState(0);
   const [todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
 
@@ -37,12 +39,9 @@ export default function TodoList() {
             size="2xs"
             colorPalette="blue"
             onClick={() => {
-              if (todo) {
-                setTodoList([...todoList, { id: nextTodoId, data: todo }]);
-                setNextTodoId((id) => id + 1);
-              } else {
-                alert("Write something first!");
-              }
+              return todo
+                ? setTodoList([...todoList, { id: nextId++, data: todo }])
+                : alert("Write something first!");
             }}
           >
             Add
@@ -60,7 +59,6 @@ export default function TodoList() {
           TODO List:
         </Text>
         {todoList.map((todo) => (
-          //   TODO: Check why nextId is giving a duplicated key error.
           <CheckboxCard.Root
             key={todo.id}
             variant="subtle"
@@ -70,9 +68,7 @@ export default function TodoList() {
             <CheckboxCard.HiddenInput />
             <CheckboxCard.Control>
               <CheckboxCard.Label>
-                <Text textStyle="sm">
-                  {todo.data} - {todo.id}
-                </Text>
+                <Text textStyle="sm">{todo.data}</Text>
               </CheckboxCard.Label>
               <CheckboxCard.Indicator />
             </CheckboxCard.Control>
