@@ -15,6 +15,7 @@ let nextId = 0;
 
 export default function TodoList() {
   const [todo, setTodo] = useState("");
+  const [inputLabel, setInputLabel] = useState("");
   const [todoList, setTodoList] = useState([]);
 
   return (
@@ -31,17 +32,24 @@ export default function TodoList() {
       <Field.Root w="2xs">
         <Input
           placeholder="Write something..."
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
+          value={inputLabel}
+          onChange={(e) => {
+            setTodo(e.target.value);
+            setInputLabel(e.target.value);
+          }}
         />
         <HStack>
           <Button
             size="2xs"
             colorPalette="blue"
             onClick={() => {
-              return todo
-                ? setTodoList([...todoList, { id: nextId++, data: todo }])
-                : alert("Write something first!");
+              if (inputLabel.trim() === "") {
+                alert("Write something first!");
+                return;
+              }
+
+              setTodoList([...todoList, { id: nextId++, data: todo }]);
+              setInputLabel("");
             }}
           >
             Add
