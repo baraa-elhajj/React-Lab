@@ -58,22 +58,28 @@ export default function TodoList() {
         <Text textStyle="sm" fontWeight="bold">
           TODO List:
         </Text>
-        {todoList.map((todo) => (
-          <CheckboxCard.Root
-            key={todo.id}
-            variant="subtle"
-            colorPalette="teal"
-            w="2xs"
-          >
-            <CheckboxCard.HiddenInput />
-            <CheckboxCard.Control>
-              <CheckboxCard.Label>
-                <Text textStyle="sm">{todo.data}</Text>
-              </CheckboxCard.Label>
-              <CheckboxCard.Indicator />
-            </CheckboxCard.Control>
-          </CheckboxCard.Root>
-        ))}
+        {todoList.length == 0 ? (
+          <Text textStyle="xs" fontStyle="italic">
+            Nothing to do yet, add something...
+          </Text>
+        ) : (
+          todoList.map((todo) => (
+            <CheckboxCard.Root
+              key={todo.id}
+              variant="subtle"
+              colorPalette="teal"
+              w="2xs"
+            >
+              <CheckboxCard.HiddenInput />
+              <CheckboxCard.Control>
+                <CheckboxCard.Label>
+                  <Text textStyle="sm">{todo.data}</Text>
+                </CheckboxCard.Label>
+                <CheckboxCard.Indicator />
+              </CheckboxCard.Control>
+            </CheckboxCard.Root>
+          ))
+        )}
       </VStack>
     </>
   );
