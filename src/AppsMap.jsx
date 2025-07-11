@@ -11,6 +11,7 @@ import Counter from "./apps/Counter";
 import Pointer from "./apps/Pointer";
 import RestoForm from "./apps/RestoForm";
 import Todo from "./apps/Todo";
+import Riddles from "./apps/Riddles";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -26,6 +27,7 @@ const appsMap = {
   Pointer: <Pointer />,
   "Restaurant Form": <RestoForm />,
   Todo: <Todo />,
+  Riddles: <Riddles />,
 };
 
 export default appsMap;
