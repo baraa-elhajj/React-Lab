@@ -15,15 +15,6 @@ export default function TodoList() {
   const [todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
 
-  function handleButtonOnClick() {
-    if (todo) {
-      setNextTodoId(nextTodoId + 1);
-      return setTodoList([...todoList, { id: nextTodoId, data: todo }]);
-    } else {
-      alert("Write something first!");
-    }
-  }
-
   return (
     <>
       <Header
@@ -42,7 +33,18 @@ export default function TodoList() {
           onChange={(e) => setTodo(e.target.value)}
         />
         <HStack>
-          <Button size="2xs" colorPalette="blue" onClick={handleButtonOnClick}>
+          <Button
+            size="2xs"
+            colorPalette="blue"
+            onClick={() => {
+              if (todo) {
+                setTodoList([...todoList, { id: nextTodoId, data: todo }]);
+                setNextTodoId((id) => id + 1);
+              } else {
+                alert("Write something first!");
+              }
+            }}
+          >
             Add
           </Button>
           <Button size="2xs" colorPalette="red" onClick={() => setTodoList([])}>
@@ -60,7 +62,7 @@ export default function TodoList() {
         {todoList.map((todo) => (
           //   TODO: Check why nextId is giving a duplicated key error.
           <CheckboxCard.Root
-            key={nextTodoId}
+            key={todo.id}
             variant="subtle"
             colorPalette="teal"
             w="2xs"
@@ -68,7 +70,9 @@ export default function TodoList() {
             <CheckboxCard.HiddenInput />
             <CheckboxCard.Control>
               <CheckboxCard.Label>
-                <Text textStyle="sm">{todo.data}</Text>
+                <Text textStyle="sm">
+                  {todo.data} - {todo.id}
+                </Text>
               </CheckboxCard.Label>
               <CheckboxCard.Indicator />
             </CheckboxCard.Control>
