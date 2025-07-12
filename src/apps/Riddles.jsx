@@ -3,83 +3,7 @@ import { riddlesList } from "./data";
 import Header from "../components/ui/custom/Header";
 import { Button, Text, VStack, Input, HStack } from "@chakra-ui/react";
 
-// export default function Riddles() {
-//   const [answer, setAnswer] = useState("");
-//   const [error, setError] = useState(null);
-//   const [status, setStatus] = useState("typing");
-//   const [loading, setLoading] = useState(false);
-//   const [message, setMessage] = useState("");
-
-//   async function handleSubmit(e) {
-//     e.preventDefault();
-//     setStatus("submitting");
-//     setLoading(true);
-//     try {
-//       await checkAnswer(answer);
-//       setStatus("success");
-//       setMessage("Correct");
-//     } catch (err) {
-//       setStatus("typing");
-//       setError(err);
-//     }
-//     setLoading(false);
-//   }
-
-//   function handleTextareaChange(e) {
-//     setAnswer(e.target.value);
-//   }
-
-//   return (
-//     <>
-//       <Header description="Created a simple riddles app to test declarative programming in React." />
-
-//       <form onSubmit={handleSubmit}>
-//         <VStack wrap="wrap" gap="3" alignItems="flex-start">
-//           <Text textStyle="sm" fontWeight="bold">
-//             {riddlesList[0].title}
-//           </Text>
-//           <Text textStyle="xs">{riddlesList[0].content}</Text>
-//           <Textarea
-//             placeholder="Your answer"
-//             value={answer}
-//             onChange={handleTextareaChange}
-//             size="xs"
-//             maxW="xs"
-//             resize="none"
-//             disabled={status === "submitting"}
-//           ></Textarea>
-//           {message}
-//           <Button
-//             type="submit"
-//             size="2xs"
-//             colorPalette="blue"
-//             color="white"
-//             loading={loading}
-//             loadingText="Checking"
-//             // disabled={answer.length === 0 || status === "submitting"}
-//           >
-//             Check
-//           </Button>
-//         </VStack>
-//       </form>
-//     </>
-//   );
-// }
-
-// function checkAnswer(answer) {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       let shouldError = answer.toLowerCase() !== riddlesList[0].answer;
-//       if (shouldError) {
-//         reject(new Error("Oops, wrong answer. Try again!"));
-//       } else {
-//         resolve();
-//       }
-//     }, 1500);
-//   });
-// }
-
-export default function RiddleForm() {
+export default function Riddles() {
   const [current, setCurrent] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
@@ -95,17 +19,7 @@ export default function RiddleForm() {
 
     setLoading(true);
     setTimeout(() => {
-      if (input === correctAnswer) {
-        // setFeedback("✅ Correct!");
-        // setFeedbackColor("green.500");
-        // setShowAnswer(false);
-        setStatus("correct");
-      } else {
-        // setFeedback("❌ Wrong answer. Try again!");
-        // setFeedbackColor("red.500");
-        // setShowAnswer(true);
-        setStatus("incorrect");
-      }
+      input === correctAnswer ? setStatus("correct") : setStatus("incorrect");
       setLoading(false);
     }, 1500);
   };
