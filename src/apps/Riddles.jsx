@@ -51,7 +51,11 @@ export default function Riddles() {
 
   return (
     <>
-      <Header description="Created a simple riddles app to test declarative programming in React." />
+      <Header
+        description="Created a simple riddles app to test declarative 
+      programming in React, by describing the UI for each visual state 
+      rather than micromanaging the UI."
+      />
 
       <VStack spacing={4} alignItems="flex-start">
         <Text textStyle="sm" fontWeight="bold">
