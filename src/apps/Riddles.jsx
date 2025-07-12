@@ -17,6 +17,11 @@ export default function Riddles() {
   const showAnswerButton = wrongAnswerCounter >= 3;
 
   const handleSubmit = () => {
+    if (userAnswer === "") {
+      alert("Try guessing the answer first!");
+      return;
+    }
+
     setStatus("checking");
     const correctAnswer = riddlesList[current].answer.toLowerCase().trim();
     const input = userAnswer.toLowerCase().trim();
