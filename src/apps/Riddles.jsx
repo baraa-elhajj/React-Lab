@@ -2,15 +2,19 @@ import { useState } from "react";
 import { riddlesList } from "./data";
 import Header from "../components/ui/custom/Header";
 import { Button, Text, VStack, Input, HStack } from "@chakra-ui/react";
+import { Sparkles } from "lucide-react";
 
 export default function Riddles() {
   const [current, setCurrent] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [wrongAnswerCounter, setWrongAnswerCounter] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("idle"); // correct, incorrect, checking
+  const [status, setStatus] = useState("idle"); // values: idle, correct, incorrect, checking, showAnswer
 
-  const showFeedback = status === "correct" || status === "incorrect";
+  // Declarative workflow
+  const showFeedback =
+    status === "correct" || status === "incorrect" || status === "showAnswer";
+  const showAnswerButton = wrongAnswerCounter >= 3;
 
   const handleSubmit = () => {
     setStatus("checking");
@@ -19,7 +23,12 @@ export default function Riddles() {
 
     setLoading(true);
     setTimeout(() => {
-      input === correctAnswer ? setStatus("correct") : setStatus("incorrect");
+      if (input === correctAnswer) {
+        setStatus("correct");
+      } else {
+        setStatus("incorrect");
+        setWrongAnswerCounter((prev) => prev + 1);
+      }
       setLoading(false);
     }, 1500);
   };
@@ -27,7 +36,12 @@ export default function Riddles() {
   const handleNext = () => {
     setCurrent((prev) => (prev + 1) % riddlesList.length);
     setUserAnswer("");
+    setWrongAnswerCounter(0);
     setStatus("idle");
+  };
+
+  const handleShowAnswer = () => {
+    setStatus("showAnswer");
   };
 
   return (
@@ -53,20 +67,21 @@ export default function Riddles() {
         {showFeedback && (
           <Text
             fontSize="xs"
-            color={status === "correct" ? "green.500" : "red.500"}
+            color={
+              status === "correct"
+                ? "green.500"
+                : status === "incorrect"
+                ? "red.500"
+                : "purple.600"
+            }
           >
             {status === "correct"
               ? "✅ Correct!"
-              : "❌ Wrong answer. Try again!"}
+              : status === "incorrect"
+              ? "❌ Wrong answer. Try again!"
+              : "The answer is: " + riddlesList[current].answer}
           </Text>
         )}
-
-        {/* TODO: Implement a show answer button that appears after 3 failed attempts. */}
-        {/* {showAnswer && (
-          <Text color="purple.600" fontStyle="italic">
-            Answer: {riddlesList[current].answer}
-          </Text>
-        )} */}
 
         <HStack gap="2">
           <Button
@@ -81,6 +96,12 @@ export default function Riddles() {
           <Button variant="outline" size="2xs" onClick={handleNext}>
             Next Riddle
           </Button>
+          {showAnswerButton && (
+            <Button colorPalette="green" size="2xs" onClick={handleShowAnswer}>
+              Show Answer
+              <Sparkles size="16" />
+            </Button>
+          )}
         </HStack>
       </VStack>
     </>
