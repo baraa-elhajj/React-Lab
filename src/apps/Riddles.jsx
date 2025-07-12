@@ -82,25 +82,29 @@ import { Button, Text, VStack, Input, HStack } from "@chakra-ui/react";
 export default function RiddleForm() {
   const [current, setCurrent] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
-  const [feedback, setFeedback] = useState("");
-  const [feedbackColor, setFeedbackColor] = useState("gray.600");
   const [showAnswer, setShowAnswer] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("idle"); // correct, incorrect, checking
+
+  const showFeedback = status === "correct" || status === "incorrect";
 
   const handleSubmit = () => {
+    setStatus("checking");
     const correctAnswer = riddlesList[current].answer.toLowerCase().trim();
     const input = userAnswer.toLowerCase().trim();
 
     setLoading(true);
     setTimeout(() => {
       if (input === correctAnswer) {
-        setFeedback("✅ Correct!");
-        setFeedbackColor("green.500");
-        setShowAnswer(false);
+        // setFeedback("✅ Correct!");
+        // setFeedbackColor("green.500");
+        // setShowAnswer(false);
+        setStatus("correct");
       } else {
-        setFeedback("❌ Wrong answer. Try again!");
-        setFeedbackColor("red.500");
-        setShowAnswer(true);
+        // setFeedback("❌ Wrong answer. Try again!");
+        // setFeedbackColor("red.500");
+        // setShowAnswer(true);
+        setStatus("incorrect");
       }
       setLoading(false);
     }, 1500);
@@ -109,8 +113,7 @@ export default function RiddleForm() {
   const handleNext = () => {
     setCurrent((prev) => (prev + 1) % riddlesList.length);
     setUserAnswer("");
-    setFeedback("");
-    setShowAnswer(false);
+    setStatus("idle");
   };
 
   return (
@@ -130,19 +133,26 @@ export default function RiddleForm() {
           onChange={(e) => setUserAnswer(e.target.value)}
           size="xs"
           w="xs"
+          disabled={status === "checking"}
         />
 
-        {feedback && (
-          <Text fontWeight="medium" color={feedbackColor}>
-            {feedback}
+        {showFeedback && (
+          <Text
+            fontSize="xs"
+            color={status === "correct" ? "green.500" : "red.500"}
+          >
+            {status === "correct"
+              ? "✅ Correct!"
+              : "❌ Wrong answer. Try again!"}
           </Text>
         )}
 
-        {showAnswer && (
+        {/* TODO: Implement a show answer button that appears after 3 failed attempts. */}
+        {/* {showAnswer && (
           <Text color="purple.600" fontStyle="italic">
             Answer: {riddlesList[current].answer}
           </Text>
-        )}
+        )} */}
 
         <HStack gap="2">
           <Button
