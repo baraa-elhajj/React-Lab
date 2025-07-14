@@ -12,6 +12,7 @@ import Pointer from "./apps/Pointer";
 import RestoForm from "./apps/RestoForm";
 import Todo from "./apps/Todo";
 import Riddles from "./apps/Riddles";
+import SearchBar from "./apps/SearchBar";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -28,6 +29,7 @@ const appsMap = {
   "Restaurant Form": <RestoForm />,
   Todo: <Todo />,
   Riddles: <Riddles />,
+  "Search Bar": <SearchBar />,
 };
 
 export default appsMap;
