@@ -68,6 +68,7 @@ export default function Riddles() {
           placeholder="Type your answer..."
           value={userAnswer}
           onChange={(e) => setUserAnswer(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           size="xs"
           w="xs"
           disabled={status === "checking"}
