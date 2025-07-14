@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { foods } from "./data.jsx";
 import Header from "../components/ui/custom/Header.jsx";
-import { HStack, Input, Text } from "@chakra-ui/react";
+import { Box, Card, HStack, Image, Input, Text } from "@chakra-ui/react";
 
 function filterItems(items, query) {
   query = query.toLowerCase();
@@ -30,22 +30,30 @@ function Search({ query, onChange }) {
 function FoodList({ items }) {
   return (
     // Change to Chakra UI cards
-    <table>
-      <tbody>
-        {items.map((food) => (
-          <tr key={food.id}>
-            <td>
-              <Text fontSize="sm">{food.name}</Text>
-            </td>
-            <td>
-              <Text fontSize="sm" fontStyle="italic" color="gray.600">
-                {food.description}
-              </Text>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      {items.map((food) => (
+        <Card.Root
+          key={food.id}
+          flexDirection="row"
+          overflow="hidden"
+          maxW="md"
+          size="sm"
+        >
+          <Image
+            objectFit="cover"
+            maxW="100px"
+            src={`/images/${food.image}`}
+            alt={food.name}
+          />
+          <Box>
+            <Card.Body>
+              <Card.Title mb="2">{food.name}</Card.Title>
+              <Card.Description>{food.description}</Card.Description>
+            </Card.Body>
+          </Box>
+        </Card.Root>
+      ))}
+    </>
   );
 }
 
