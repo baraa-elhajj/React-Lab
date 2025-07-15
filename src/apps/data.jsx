@@ -212,21 +212,21 @@ export const foods = [
     id: 0,
     name: "Sushi",
     description:
-      "Sushi is a traditional Japanese dish of prepared vinegared rice",
+      "Sushi is a traditional Japanese dish of prepared vinegared rice.",
     image: "sushi.jpg",
   },
   {
     id: 1,
     name: "Dal",
     description:
-      "The most common way of preparing dal is in the form of a soup to which onions, tomatoes and various spices may be added",
+      "The most common way of preparing dal is in the form of a soup to which onions, tomatoes and various spices may be added.",
     image: "dal.jpg",
   },
   {
     id: 2,
     name: "Pierogi",
     description:
-      "Pierogi are filled dumplings made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water",
+      "Pierogi are filled dumplings made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water.",
     image: "pierogi.jpg",
   },
   {
@@ -240,7 +240,7 @@ export const foods = [
     id: 4,
     name: "Dim sum",
     description:
-      "Dim sum is a large range of small dishes that Cantonese people traditionally enjoy in restaurants for breakfast and lunch",
+      "Dim sum is a large range of small dishes that Cantonese people traditionally enjoy in restaurants for breakfast and lunch.",
     image: "dim-sum.jpg",
   },
 ];
