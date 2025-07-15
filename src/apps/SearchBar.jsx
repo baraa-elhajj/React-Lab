@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { foods } from "./data.jsx";
 import Header from "../components/ui/custom/Header.jsx";
-import { Box, Card, HStack, Image, Input, Text } from "@chakra-ui/react";
+import { Box, Card, Grid, HStack, Image, Input, Text } from "@chakra-ui/react";
 
 function filterItems(items, query) {
   query = query.toLowerCase();
@@ -13,15 +13,12 @@ function filterItems(items, query) {
 function Search({ query, onChange }) {
   return (
     <>
-      <Text fontSize="sm" w="xs">
-        Search
-      </Text>
       <Input
         placeholder="Search food"
         value={query}
         onChange={onChange}
         size="xs"
-        w="3xs"
+        w="auto"
       />
     </>
   );
@@ -29,30 +26,31 @@ function Search({ query, onChange }) {
 
 function FoodList({ items }) {
   return (
-    // Change to Chakra UI cards
     <>
-      {items.map((food) => (
-        <Card.Root
-          key={food.id}
-          flexDirection="row"
-          overflow="hidden"
-          maxW="md"
-          size="sm"
-        >
-          <Image
-            objectFit="cover"
-            maxW="100px"
-            src={`/images/${food.image}`}
-            alt={food.name}
-          />
-          <Box>
-            <Card.Body>
-              <Card.Title mb="2">{food.name}</Card.Title>
-              <Card.Description>{food.description}</Card.Description>
-            </Card.Body>
-          </Box>
-        </Card.Root>
-      ))}
+      <Grid templateColumns="repeat(2, 1fr)" gap="6">
+        {items.map((food) => (
+          <Card.Root
+            key={food.id}
+            flexDirection="row"
+            overflow="hidden"
+            maxW="md"
+            size="sm"
+          >
+            <Image
+              objectFit="cover"
+              maxW="100px"
+              src={`/images/${food.image}`}
+              alt={food.name}
+            />
+            <Box>
+              <Card.Body>
+                <Card.Title mb="2">{food.name}</Card.Title>
+                <Card.Description>{food.description}</Card.Description>
+              </Card.Body>
+            </Box>
+          </Card.Root>
+        ))}
+      </Grid>
     </>
   );
 }
