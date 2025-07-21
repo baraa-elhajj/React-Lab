@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
+import Header from "../components/ui/custom/Header";
 import { Moon, Sun } from "lucide-react";
 
 // 1. Create Theme Context
@@ -49,6 +50,10 @@ export default function ThemeToggler() {
 
   return (
     <>
+      <Header
+        description="A simple light/dark mode theme toggler demonstrating the use 
+      of useContext() hook."
+      />
       {/* 3. Provide Theme Context for children*/}
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <Content />
