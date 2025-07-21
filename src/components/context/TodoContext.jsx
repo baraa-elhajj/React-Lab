@@ -24,11 +24,11 @@ export function TodoProvider({ children }) {
 }
 
 // Reducer function
-function todosReducer(tasks, action) {
+function todosReducer(todos, action) {
   switch (action.type) {
     case "added": {
       return [
-        ...tasks,
+        ...todos,
         {
           id: action.id,
           text: action.text,
@@ -36,8 +36,9 @@ function todosReducer(tasks, action) {
         },
       ];
     }
+
     case "changed": {
-      return tasks.map((t) => {
+      return todos.map((t) => {
         if (t.id === action.task.id) {
           return action.task;
         } else {
@@ -45,9 +46,15 @@ function todosReducer(tasks, action) {
         }
       });
     }
+
     case "deleted": {
-      return tasks.filter((t) => t.id !== action.id);
+      return todos.filter((t) => t.id !== action.id);
     }
+
+    case "cleared": {
+      return [];
+    }
+
     default: {
       throw Error("Unknown action: " + action.type);
     }
