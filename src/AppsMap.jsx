@@ -13,6 +13,7 @@ import RestoForm from "./apps/RestoForm";
 import Todo from "./apps/Todo";
 import Riddles from "./apps/Riddles";
 import SearchBar from "./apps/SearchBar";
+import ThemeToggler from "./apps/ThemeToggler";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -30,6 +31,7 @@ const appsMap = {
   Todo: <Todo />,
   Riddles: <Riddles />,
   "Search Bar": <SearchBar />,
+  "Theme Toggler": <ThemeToggler />,
 };
 
 export default appsMap;
