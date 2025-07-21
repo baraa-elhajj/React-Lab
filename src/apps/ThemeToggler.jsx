@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 import Header from "../components/ui/custom/Header";
 import { Moon, Sun } from "lucide-react";
 
@@ -43,6 +43,21 @@ function Content() {
   );
 }
 
+function ThemedButton() {
+  const { theme } = useThemeContext();
+
+  return (
+    <Button
+      ml="4"
+      size="xs"
+      onClick={() => alert("Hello!")}
+      colorPalette={theme === "light" ? "blue" : "black"}
+    >
+      Say Hello!
+    </Button>
+  );
+}
+
 export default function ThemeToggler() {
   const [theme, setTheme] = useState("light");
   const toggleTheme = () =>
@@ -57,6 +72,7 @@ export default function ThemeToggler() {
       {/* 3. Provide Theme Context for children*/}
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <Content />
+        <ThemedButton />
       </ThemeContext.Provider>
     </>
   );
