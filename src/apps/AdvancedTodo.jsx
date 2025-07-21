@@ -13,7 +13,7 @@ import {
 // global variable
 let nextId = 0;
 
-export default function TodoList() {
+export default function AdvancedTodo() {
   const [todo, setTodo] = useState("");
   const [inputLabel, setInputLabel] = useState("");
   const [todoList, setTodoList] = useState([]);
