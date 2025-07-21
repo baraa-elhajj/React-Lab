@@ -1,21 +1,9 @@
 import { useState } from "react";
 import Header from "../components/ui/custom/Header";
-import {
-  Button,
-  Field,
-  HStack,
-  Input,
-  Text,
-  CheckboxCard,
-  VStack,
-} from "@chakra-ui/react";
-
-// global variable
-let nextId = 0;
+import { Text, CheckboxCard, VStack } from "@chakra-ui/react";
+import AddTodoForm from "../components/ui/custom/Todo/AddTodoForm";
 
 export default function AdvancedTodo() {
-  const [todo, setTodo] = useState("");
-  const [inputLabel, setInputLabel] = useState("");
   const [todoList, setTodoList] = useState([]);
 
   return (
@@ -28,39 +16,11 @@ export default function AdvancedTodo() {
       />
 
       {/* TODO: change the app logic to use a reducer/context combination. */}
+
       <Text textStyle="sm" fontWeight="bold">
         What's on your mind?
       </Text>
-      <Field.Root w="2xs">
-        <Input
-          placeholder="Write something..."
-          value={inputLabel}
-          onChange={(e) => {
-            setTodo(e.target.value);
-            setInputLabel(e.target.value);
-          }}
-        />
-        <HStack>
-          <Button
-            size="2xs"
-            colorPalette="blue"
-            onClick={() => {
-              if (inputLabel.trim() === "") {
-                alert("Write something first!");
-                return;
-              }
-
-              setTodoList([...todoList, { id: nextId++, data: todo }]);
-              setInputLabel("");
-            }}
-          >
-            Add
-          </Button>
-          <Button size="2xs" colorPalette="red" onClick={() => setTodoList([])}>
-            Clear
-          </Button>
-        </HStack>
-      </Field.Root>
+      <AddTodoForm />
 
       <br />
 
