@@ -39,8 +39,8 @@ function todosReducer(todos, action) {
 
     case "changed": {
       return todos.map((t) => {
-        if (t.id === action.task.id) {
-          return action.task;
+        if (t.id === action.todo.id) {
+          return action.todo;
         } else {
           return t;
         }
