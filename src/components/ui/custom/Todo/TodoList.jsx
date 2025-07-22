@@ -8,6 +8,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { Check, Pencil, X } from "lucide-react";
 
 function Todo({ todo }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -35,7 +36,7 @@ function Todo({ todo }) {
           colorPalette="blue"
           onClick={() => setIsEditing(false)}
         >
-          Save
+          <Check />
         </Button>
       </>
     );
@@ -44,8 +45,8 @@ function Todo({ todo }) {
       <>
         <CheckboxCard.Root
           key={todo.id}
-          variant="subtle"
-          colorPalette="teal"
+          variant="outline"
+          colorPalette="blue"
           w="2xs"
           checked={todo.done}
           onChange={(e) => {
@@ -71,7 +72,7 @@ function Todo({ todo }) {
           colorPalette="blue"
           onClick={() => setIsEditing(true)}
         >
-          Edit
+          <Pencil />
         </Button>
       </>
     );
@@ -89,7 +90,7 @@ function Todo({ todo }) {
           });
         }}
       >
-        Delete
+        <X />
       </Button>
     </HStack>
   );
@@ -100,6 +101,9 @@ export default function TodoList() {
 
   return (
     <VStack wrap="wrap" gap="2" alignItems="flex-start">
+      <Text textStyle="sm" fontWeight="bold">
+        TODO List:
+      </Text>
       {todos.length === 0 ? (
         <Text textStyle="xs" fontStyle="italic">
           Nothing to do yet, add something...
