@@ -2,10 +2,11 @@ import Header from "../components/ui/custom/Header";
 import { Text, CheckboxCard, VStack } from "@chakra-ui/react";
 import AddTodoForm from "../components/ui/custom/Todo/AddTodoForm";
 import TodoList from "../components/ui/custom/Todo/TodoList";
+import { TodoProvider } from "../components/context/TodoContext";
 
 export default function AdvancedTodo() {
   return (
-    <>
+    <TodoProvider>
       <Header
         description="An advanced version of Todo app using a reducer/context
         combination. Worked with useReducer(), useContext(), and custom hooks 
@@ -19,5 +20,6 @@ export default function AdvancedTodo() {
       <AddTodoForm />
       <br />
       <TodoList />
+    </TodoProvider>
   );
 }
