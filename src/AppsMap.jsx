@@ -15,6 +15,7 @@ import Riddles from "./apps/Riddles";
 import SearchBar from "./apps/SearchBar";
 import ThemeToggler from "./apps/ThemeToggler";
 import AdvancedTodo from "./apps/AdvancedTodo";
+import Ref from "./apps/Ref";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -34,6 +35,7 @@ const appsMap = {
   "Search Bar": <SearchBar />,
   "Theme Toggler": <ThemeToggler />,
   "Advanced Todo": <AdvancedTodo />,
+  Ref: <Ref />,
 };
 
 export default appsMap;
