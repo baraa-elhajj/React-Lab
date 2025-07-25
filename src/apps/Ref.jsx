@@ -1,10 +1,11 @@
 import Header from "../components/ui/custom/Header";
-import { Text, CheckboxCard, VStack, Button } from "@chakra-ui/react";
+import { Text, Button, Input } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 
 export default function AdvancedTodo() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+  const inputRef = useRef(null);
 
   function handleOnClick() {
     if (isPlaying) {
@@ -14,6 +15,10 @@ export default function AdvancedTodo() {
       setIsPlaying(true);
       videoRef.current.play();
     }
+  }
+
+  function handleFocusOnClick() {
+    inputRef.current.focus();
   }
 
   return (
@@ -44,6 +49,26 @@ export default function AdvancedTodo() {
       </video>
       <Button size="2xs" colorPalette="orange" onClick={handleOnClick} mt="2">
         {isPlaying ? "Pause" : "Play"}
+      </Button>
+
+      <Text textStyle="sm" fontWeight="bold" mt="5">
+        Focus Input
+      </Text>
+      <Text textStyle="2xs" fontStyle="italic" my="2" color="gray">
+        Used input element ref to focus on the input when button clicked.
+      </Text>
+      <Text fontSize="sm" w="xs">
+        Random Form
+      </Text>
+      <Input ref={inputRef} placeholder="Something..." size="xs" w="2xs" />
+      <br />
+      <Button
+        size="2xs"
+        colorPalette="blue"
+        onClick={handleFocusOnClick}
+        mt="2"
+      >
+        Focus
       </Button>
     </>
   );
