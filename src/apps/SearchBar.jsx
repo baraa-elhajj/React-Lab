@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { foods } from "./data.jsx";
 import Header from "../components/ui/custom/Header.jsx";
-import { Box, Card, Grid, HStack, Image, Input, Text } from "@chakra-ui/react";
+import { Box, Card, Grid, Image, Input } from "@chakra-ui/react";
 
 function filterItems(items, query) {
   query = query.toLowerCase();
