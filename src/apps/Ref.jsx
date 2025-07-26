@@ -2,7 +2,6 @@ import Header from "../components/ui/custom/Header";
 import { Text, Button, Input, Image, HStack, VStack } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { foods } from "./data.jsx";
-import "../App.css";
 import { flushSync } from "react-dom";
 
 export default function Ref() {
