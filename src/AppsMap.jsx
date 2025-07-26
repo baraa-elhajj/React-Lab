@@ -16,6 +16,7 @@ import SearchBar from "./apps/SearchBar";
 import ThemeToggler from "./apps/ThemeToggler";
 import AdvancedTodo from "./apps/AdvancedTodo";
 import Ref from "./apps/Ref";
+import VideoPlayer from "./apps/VideoPlayer";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -36,6 +37,7 @@ const appsMap = {
   "Theme Toggler": <ThemeToggler />,
   "Advanced Todo": <AdvancedTodo />,
   Ref: <Ref />,
+  "Video Player": <VideoPlayer />,
 };
 
 export default appsMap;
