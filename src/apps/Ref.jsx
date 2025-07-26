@@ -5,7 +5,7 @@ import { foods } from "./data.jsx";
 import "../App.css";
 import { flushSync } from "react-dom";
 
-export default function AdvancedTodo() {
+export default function Ref() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
