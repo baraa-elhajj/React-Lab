@@ -1,11 +1,18 @@
 import Header from "../components/ui/custom/Header";
-import { Text, Button, Input } from "@chakra-ui/react";
+import { Text, Button, Input, Image, HStack, VStack } from "@chakra-ui/react";
 import { useRef, useState } from "react";
+import { foods } from "./data.jsx";
+import "../App.css";
+import { flushSync } from "react-dom";
 
 export default function AdvancedTodo() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+
   const inputRef = useRef(null);
+
+  const [foodListIndex, setFoodListIndex] = useState(0);
+  const selectedRef = useRef(null);
 
   function handleOnClick() {
     if (isPlaying) {
@@ -19,6 +26,22 @@ export default function AdvancedTodo() {
 
   function handleFocusOnClick() {
     inputRef.current.focus();
+  }
+
+  function handleNextOnClick() {
+    flushSync(() => {
+      if (foodListIndex < foods.length - 1) {
+        setFoodListIndex(foodListIndex + 1);
+      } else {
+        setFoodListIndex(0);
+      }
+
+      selectedRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    });
   }
 
   return (
@@ -69,6 +92,32 @@ export default function AdvancedTodo() {
         mt="2"
       >
         Focus
+      </Button>
+
+      <Text textStyle="sm" fontWeight="bold" mt="5">
+        Horizental Scroll View
+      </Text>
+      <Text textStyle="2xs" fontStyle="italic" my="2" color="gray">
+        Used list selected ref to scroll into view. Applied flushSync() to force
+        React to update the DOM before the scroll.
+      </Text>
+      <HStack as="ul" gap="5" wrap="wrap">
+        {foods.map((food, i) => {
+          return (
+            <li key={food.id} ref={foodListIndex === i ? selectedRef : null}>
+              <Image
+                border={foodListIndex === i ? "2px solid gray" : "none"}
+                src={`/images/${food.image}`}
+                alt={food.name}
+                maxW="120px"
+                objectFit="cover"
+              />
+            </li>
+          );
+        })}
+      </HStack>
+      <Button size="2xs" colorPalette="blue" onClick={handleNextOnClick} mt="2">
+        Next
       </Button>
     </>
   );
