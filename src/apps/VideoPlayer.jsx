@@ -17,6 +17,10 @@ export default function VideoPlayer() {
       videoRef.current.pause();
       console.log("Calling video.pause() method.");
     }
+
+    return () => {
+      console.log("Cleanup!");
+    };
   }, [isPlaying]); // try: [], [isPlaying] or keep it empty.
 
   return (
@@ -27,7 +31,8 @@ export default function VideoPlayer() {
         given a dependency array (i.e Effect Dependency) that specifies when 
         to run. In fact, an empty dependency array [ ] tells React to run the 
         code only on mount (when the component appears). If provided with a 
-        state or something, the code runs when it changes."
+        state or something, the code runs when it changes. Used cleanup 
+        function as well, which runs before any new effect and on unmount."
       />
 
       <Text textStyle="sm" fontWeight="bold" mb="2">
