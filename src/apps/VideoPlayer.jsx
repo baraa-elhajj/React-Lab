@@ -21,7 +21,7 @@ export default function VideoPlayer() {
     return () => {
       console.log("Cleanup!");
     };
-  }, [isPlaying]); // try: [], [isPlaying] or keep it empty.
+  }, [isPlaying]); // try the following values: [], [isPlaying] or keep it empty.
 
   return (
     <>
