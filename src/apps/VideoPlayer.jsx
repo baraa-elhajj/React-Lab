@@ -12,10 +12,10 @@ export default function VideoPlayer() {
     console.log("Effect triggered!");
     if (isPlaying) {
       videoRef.current.play();
-      console.log("Calling video.play() method.");
+      console.log("Calling video.play() method..");
     } else {
       videoRef.current.pause();
-      console.log("Calling video.pause() method.");
+      console.log("Calling video.pause() method..");
     }
 
     return () => {
