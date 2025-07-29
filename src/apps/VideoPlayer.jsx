@@ -19,7 +19,7 @@ export default function VideoPlayer() {
     }
 
     return () => {
-      console.log("Cleanup!");
+      console.log("Cleanup triggered!");
     };
   }, [isPlaying]); // try the following values: [], [isPlaying] or keep it empty.
 
