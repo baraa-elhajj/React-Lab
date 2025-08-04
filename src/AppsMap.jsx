@@ -17,6 +17,7 @@ import ThemeToggler from "./apps/ThemeToggler";
 import AdvancedTodo from "./apps/AdvancedTodo";
 import Ref from "./apps/Ref";
 import VideoPlayer from "./apps/VideoPlayer";
+import PerformanceLoop from "./apps/PerformanceLoop";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -38,6 +39,7 @@ const appsMap = {
   "Advanced Todo": <AdvancedTodo />,
   Ref: <Ref />,
   "Video Player": <VideoPlayer />,
+  "Performance Loop": <PerformanceLoop />,
 };
 
 export default appsMap;
