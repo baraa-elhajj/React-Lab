@@ -39,6 +39,15 @@ Make sure you have [Node.js](https://nodejs.org/) and [Vite](https://vitejs.dev/
 
 ---
 
+## How to add your own mini app
+
+1. Create your main jsx component in `src/apps` repository.
+2. Import your component in `src/AppsMap.jsx` file.
+3. Add your component to the `appsMap` map, e.g. `MyComponentName: <MyComponent />`
+4. Now your mini app is added. Run the project and check it out in the list of apps in the left panel.
+
+---
+
 ## Technologies Used
 
 - React
