@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
+import Header from "../components/ui/custom/Header";
 
 // Simulate expensive work
 const expensiveCalculation = (num) => {
@@ -27,69 +28,75 @@ export default function DemoUseMemoBenefit() {
   }, [fixedInput]);
 
   return (
-    <div
-      style={{
-        fontFamily: "system-ui, sans-serif",
-        padding: 20,
-        maxWidth: 600,
-      }}
-    >
-      <h1>useMemo Benefit Demo</h1>
-
-      <div style={{ marginBottom: 16 }}>
-        <label>
-          Fixed input for expensive calc:{" "}
-          <input
-            type="number"
-            value={fixedInput}
-            onChange={(e) => setFixedInput(Number(e.target.value))}
-            style={{ width: 80 }}
-          />
-        </label>
-      </div>
-
-      <div style={{ marginBottom: 16 }}>
-        <label>
-          Typing here causes re-renders (unrelated):{" "}
-          <input
-            type="text"
-            value={typing}
-            onChange={(e) => setTyping(e.target.value)}
-          />
-        </label>
-        <p style={{ fontSize: 12, color: "#555" }}>
-          Changing this input triggers renders but should not force the memoized
-          expensive calculation again.
-        </p>
-      </div>
-
+    <>
+      <Header
+        description="A simple page that shows the use of useMemo() hook that
+        caches (memorizes) expensive calculations and uses previously calculated
+        values if some unrelated states have changed. Used performance.now() to 
+        calculate the time."
+      />
       <div
         style={{
-          padding: 12,
-          border: "1px solid #ccc",
-          borderRadius: 8,
-          marginBottom: 12,
+          fontFamily: "system-ui, sans-serif",
+          padding: 20,
+          maxWidth: 600,
         }}
       >
-        <h2 style={{ margin: "4px 0" }}>Without useMemo</h2>
-        <div>Value: {noMemoValue.toFixed(0)}</div>
-        <div>Calculation time: {noMemoDuration.toFixed(2)} ms</div>
-        <div style={{ fontSize: 12, color: "#a00" }}>
-          This runs on every render, even when you’re just typing above.
+        <div style={{ marginBottom: 16 }}>
+          <label>
+            Fixed input for expensive calc:{" "}
+            <input
+              type="number"
+              value={fixedInput}
+              onChange={(e) => setFixedInput(Number(e.target.value))}
+              style={{ width: 80 }}
+            />
+          </label>
         </div>
-      </div>
 
-      <div
-        style={{ padding: 12, border: "1px solid #4caf50", borderRadius: 8 }}
-      >
-        <h2 style={{ margin: "4px 0" }}>With useMemo</h2>
-        <div>Value: {memoValue.toFixed(0)}</div>
-        <div>Calculation time: {memoDuration.toFixed(2)} ms</div>
-        <div style={{ fontSize: 12, color: "#555" }}>
-          Only recomputes when the fixed input changes. Typing doesn’t
-          re-trigger it.
+        <div style={{ marginBottom: 16 }}>
+          <label>
+            Typing here causes re-renders (unrelated):{" "}
+            <input
+              type="text"
+              value={typing}
+              onChange={(e) => setTyping(e.target.value)}
+            />
+          </label>
+          <p style={{ fontSize: 12, color: "#555" }}>
+            Changing this input triggers renders but should not force the
+            memoized expensive calculation again.
+          </p>
+        </div>
+
+        <div
+          style={{
+            padding: 12,
+            border: "1px solid #ccc",
+            borderRadius: 8,
+            marginBottom: 12,
+          }}
+        >
+          <h2 style={{ margin: "4px 0" }}>Without useMemo</h2>
+          <div>Value: {noMemoValue.toFixed(0)}</div>
+          <div>Calculation time: {noMemoDuration.toFixed(2)} ms</div>
+          <div style={{ fontSize: 12, color: "#a00" }}>
+            This runs on every render, even when you’re just typing above.
+          </div>
+        </div>
+
+        <div
+          style={{ padding: 12, border: "1px solid #4caf50", borderRadius: 8 }}
+        >
+          <h2 style={{ margin: "4px 0" }}>With useMemo</h2>
+          <div>Value: {memoValue.toFixed(0)}</div>
+          <div>Calculation time: {memoDuration.toFixed(2)} ms</div>
+          <div style={{ fontSize: 12, color: "#555" }}>
+            Only recomputes when the fixed input changes. Typing doesn’t
+            re-trigger it.
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
