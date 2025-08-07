@@ -53,8 +53,8 @@ Make sure you have [Node.js](https://nodejs.org/) and [Vite](https://vitejs.dev/
 - React
 - Vite
 - JavaScript / JSX
-- ChakraUI
-- Lucide and React Icons
+- [ChakraUI](https://chakra-ui.com/)
+- [Lucide](https://lucide.dev/) and React Icons
 
 ---
 
