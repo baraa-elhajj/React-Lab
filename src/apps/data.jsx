@@ -244,3 +244,56 @@ export const foods = [
     image: "dim-sum.jpg",
   },
 ];
+
+export const reactBadges = [
+  {
+    id: 1,
+    name: "Basics",
+    color: "blue",
+  },
+  {
+    id: 2,
+    name: "State",
+    color: "green",
+  },
+  {
+    id: 3,
+    name: "Batching",
+    color: "yellow",
+  },
+  {
+    id: 4,
+    name: "Immer",
+    color: "red",
+  },
+  {
+    id: 5,
+    name: "Advanced",
+    color: "orange",
+  },
+  {
+    id: 6,
+    name: "Context",
+    color: "purple",
+  },
+  {
+    id: 7,
+    name: "Reducer",
+    color: "teal",
+  },
+  {
+    id: 8,
+    name: "Ref",
+    color: "cyan",
+  },
+  {
+    id: 9,
+    name: "Effect",
+    color: "blue",
+  },
+  {
+    id: 10,
+    name: "Memo",
+    color: "green",
+  },
+];
