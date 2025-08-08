@@ -11,7 +11,6 @@ export default function Header({ description, badgesIds }) {
         </Text>{" "}
         {description}
       </Text>
-      {console.log("Header >> badgesIds: ", badgesIds)}
       <Badges badgesIdList={badgesIds} />
       <Divider />
     </div>
