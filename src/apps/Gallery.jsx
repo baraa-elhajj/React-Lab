@@ -8,6 +8,7 @@ export default function Gallery() {
       <Header
         description="Applying import/export keywords, to display a
         component inside another."
+        badgesIds={[1]}
       />
 
       <Text textStyle="xl" fontWeight="bold">
