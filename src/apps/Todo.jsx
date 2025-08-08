@@ -25,6 +25,7 @@ export default function TodoList() {
       without mutating it using copy spread syntax. Note: Use the method 
       slice() and two spread syntax to add elements into the array; e.g. 
       ...array.slice(0, indexToAdd) >> { itemToAdd } >> ...array.slice(indexToAdd)"
+        badgesIds={[5, 2]}
       />
       <Text textStyle="sm" fontWeight="bold">
         What's on your mind?

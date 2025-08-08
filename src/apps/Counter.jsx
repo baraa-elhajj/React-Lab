@@ -13,6 +13,7 @@ export default function Counter() {
       In fact, React processes state updates after event handlers have finished running.
       To update some state multiple times in one event, we can use  updater functions 
       such as 'setCounter(n => n + 1)'"
+        badgesIds={[5, 2, 3]}
       />
       <Text fontWeight="bold">Counter: {counter}</Text>
       <HStack gap="1">

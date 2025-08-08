@@ -74,6 +74,7 @@ export default function RestoForm() {
         description="A quick form to test copying nested objects with the spread syntax, 
     or useImmer(), ultimately avoiding state mutation. Applied useState() hook with an object 
     having all the form input values instead of creating a state for every form input."
+        badgesIds={[5, 4]}
       />
 
       <Text fontStyle="italic" color="gray.600">

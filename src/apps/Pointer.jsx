@@ -12,6 +12,7 @@ export default function MovingDot() {
       <Header
         description="Rendering a pointer that moves along with the user cursor. 
     This app tests using and modifying a JS object in a state."
+        badgesIds={[5, 2]}
       />
       <Text textStyle="xs" color="gray.500">
         x: {(position.x - 230).toFixed(2)}, y: {(position.y - 165).toFixed(2)}

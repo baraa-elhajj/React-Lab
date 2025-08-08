@@ -18,7 +18,11 @@ export default function ClockApp() {
 
   return (
     <div>
-      <Header description="A simple app displaying the current time and wether its day or night based on the time condition." />
+      <Header
+        description="A simple app displaying the current time 
+      and wether its day or night based on the time condition."
+        badgesIds={[1]}
+      />
       <Clock time={now} />
     </div>
   );

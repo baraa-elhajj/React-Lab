@@ -58,6 +58,7 @@ export default function PeopleInfo() {
         description="Rendering components from an array using
         JavaScript’s map() and filter() functions, and learning when to use
         React Keys."
+        badgesIds={[1]}
       />
 
       <Text textStyle="xl" fontWeight="bold">

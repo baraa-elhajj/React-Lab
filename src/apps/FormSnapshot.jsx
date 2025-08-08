@@ -32,10 +32,11 @@ export default function Form() {
   return (
     <>
       <Header
-        description="Rendering a simple form app, which displays the a message using an alert 
+        description="Rendering a simple form app, which displays a message using an alert 
       priorly selected by the user. This app shows that when useState() is called, React gives 
       a 'snapshot' of the state for that render. Event handlers created in the past have the state 
       values from the render in which they were created."
+        badgesIds={[5, 2]}
       />
 
       <form onSubmit={handleSubmit}>

@@ -12,6 +12,7 @@ export default function AdvancedTodo() {
         combination. Worked with useReducer(), useContext(), and custom hooks 
         to scale up the app, and avoid props drilling. Also moved all the wiring
         into one context provider file."
+        badgesIds={[5, 6, 7]}
       />
 
       <Text textStyle="sm" fontWeight="bold">

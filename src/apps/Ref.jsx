@@ -49,6 +49,7 @@ export default function Ref() {
         description="A page that shows some React Refs tests and examples.
         Usually, refs are used for non-destructive actions like focusing, 
         scrolling, or measuring and holding DOM elements."
+        badgesIds={[5, 8]}
       />
 
       <Text textStyle="sm" fontWeight="bold">

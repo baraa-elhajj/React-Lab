@@ -26,7 +26,10 @@ export default function Restaurants() {
   let restaurant = restaurantsList[index];
   return (
     <>
-      <Header description="Rendering a Restaurant Gallery app, focusing on React useState() hook." />
+      <Header
+        description="Rendering a Restaurant Gallery app, focusing on React useState() hook."
+        badgesIds={[1, 2]}
+      />
 
       <Text textStyle="lg" fontWeight="bold">
         {restaurant.name}

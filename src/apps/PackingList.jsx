@@ -37,6 +37,7 @@ export default function PackingList() {
       <Header
         description="Applying conditional rendering on items, to display
         a ✅ next to the items having the prop isPacked set to true."
+        badgesIds={[1]}
       />
 
       <Text textStyle="xl" fontWeight="bold">

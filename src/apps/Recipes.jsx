@@ -25,7 +25,11 @@ export default function RecipeList() {
 
   return (
     <div>
-      <Header description="Rendering several DOM nodes for each item of list. Used mainly React's Fragment, map(), and ChakraUI." />
+      <Header
+        description="Rendering several DOM nodes for each item of list. 
+        Used mainly React's Fragment, map(), and ChakraUI."
+        badgesIds={[1]}
+      />
 
       <Text textStyle="xl" fontWeight="bold">
         Recipe List

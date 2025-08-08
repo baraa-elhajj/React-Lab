@@ -40,7 +40,10 @@ function Copyrights({ year }) {
 export default function QuotesGenerator() {
   return (
     <>
-      <Header description="Rendering a random quotes app, using React useState() Hook." />
+      <Header
+        description="Rendering a random quotes app, using React useState() Hook."
+        badgesIds={[1, 2]}
+      />
       <Quotes>
         <Copyrights year={2025} />
       </Quotes>

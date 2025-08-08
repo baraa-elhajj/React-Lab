@@ -29,7 +29,10 @@ function PauseButton() {
 export default function Toolbar() {
   return (
     <div>
-      <Header description="A simple toolbar app. Tested passing event handlers as props." />
+      <Header
+        description="A simple toolbar app. Tested passing event handlers as props."
+        badgesIds={[1]}
+      />
 
       <HStack wrap="wrap" gap="5">
         <PlayButton movieName="Movie 1" />

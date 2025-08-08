@@ -68,6 +68,7 @@ export default function ThemeToggler() {
       <Header
         description="A simple light/dark mode theme toggler demonstrating the use 
       of useContext() hook."
+        badgesIds={[5, 6]}
       />
       {/* 3. Provide Theme Context for children*/}
       <ThemeContext.Provider value={{ theme, toggleTheme }}>

@@ -33,6 +33,7 @@ export default function VideoPlayer() {
         code only on mount (when the component appears). If provided with a 
         state or something, the code runs when it changes. Used cleanup 
         function as well, which runs before any new effect and on unmount."
+        badgesIds={[5, 9]}
       />
 
       <Text textStyle="sm" fontWeight="bold" mb="2">

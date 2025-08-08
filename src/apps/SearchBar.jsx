@@ -72,6 +72,7 @@ export default function SearchBar() {
       move their state to their common parent, pass their info using 
       props in the parent block, then pass event handlers for the childs
       so they could change the parent state."
+        badgesIds={[5, 2]}
       />
 
       <Search query={query} onChange={handleChange} />

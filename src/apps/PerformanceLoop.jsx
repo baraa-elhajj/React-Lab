@@ -34,6 +34,7 @@ export default function DemoUseMemoBenefit() {
         caches (memorizes) expensive calculations and uses previously calculated
         values if some unrelated states have changed. Used performance.now() to 
         calculate the time."
+        badgesIds={[5, 10]}
       />
       <div
         style={{
