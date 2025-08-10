@@ -4,7 +4,7 @@ import Badges from "./Badges";
 
 export default function Header({ description, badgesIds }) {
   return (
-    <div>
+    <>
       <Text textStyle="sm" fontWeight="light" color="gray.600">
         <Text as="span" fontWeight="bold">
           Description:
@@ -13,6 +13,6 @@ export default function Header({ description, badgesIds }) {
       </Text>
       <Badges badgesIdList={badgesIds} />
       <Divider />
-    </div>
+    </>
   );
 }
