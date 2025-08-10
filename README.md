@@ -55,6 +55,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [Vite](https://vitejs.dev/
 - JavaScript / JSX
 - [ChakraUI](https://chakra-ui.com/)
 - [Lucide](https://lucide.dev/) and React Icons
+- ESLint and Prettier
 
 ---
 
