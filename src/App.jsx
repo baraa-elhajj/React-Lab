@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import appsMap from "./AppsMap";
 import { Box, Flex, VStack, Button, Heading } from "@chakra-ui/react";
 
