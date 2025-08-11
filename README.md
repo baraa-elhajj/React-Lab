@@ -51,12 +51,64 @@ Make sure you have [Node.js](https://nodejs.org/) and [Vite](https://vitejs.dev/
 
 ## Technologies Used
 
-- React
-- Vite
+- React + Vite
 - JavaScript / JSX
+- ESLint
 - [ChakraUI](https://chakra-ui.com/)
 - [Lucide](https://lucide.dev/) and React Icons
-- ESLint and Prettier
+- Some useful vscode extensions like [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [FileTree Pro](https://marketplace.visualstudio.com/items?itemName=0xTanzim.filetree-pro)
+
+---
+
+## Project Structure
+
+```
+├── 📁 .git/ 🚫 (auto-hidden)
+├── 📁 node_modules/ 🚫 (auto-hidden)
+├── 📁 public/
+│   ├── 📁 images/  # add images used in your apps
+│   └── 🖼️ vite.svg
+├── 📁 src/ # Main application source code
+│   ├── 📁 apps/    # Add your mini-apps here
+│   │   ├── 📄 AdvancedTodo.jsx
+│   │   ├── 📄 Counter.jsx
+│   │   ├── 📄 Gallery.jsx
+│   │   ├── 📄 PerformanceLoop.jsx
+│   │   ├── 📄 QuotesGenerator.jsx
+│   │   ├── 📄 Restaurants.jsx
+│   │   ├── 📄 Riddles.jsx
+│   │   ├── 📄 SearchBar.jsx
+│   │   ├── 📄 ThemeToggler.jsx
+│   │   ├── 📄 VideoPlayer.jsx
+│   │   ├── 📄 data.jsx
+│   ├── 📁 components/  # Reusable UI components
+│   │   ├── 📁 context/
+│   │   │   └── 📄 TodoContext.jsx
+│   │   └── 📁 ui/
+│   │       ├── 📁 custom/
+│   │       │   ├── 📁 Todo/
+│   │       │   │   ├── 📄 AddTodoForm.jsx
+│   │       │   │   └── 📄 TodoList.jsx
+│   │       │   ├── 📄 Badges.jsx
+│   │       │   ├── 📄 Divider.jsx
+│   │       │   └── 📄 Header.jsx
+│   │       ├── 📄 color-mode.jsx
+│   │       ├── 📄 provider.jsx
+│   │       ├── 📄 toaster.jsx
+│   │       └── 📄 tooltip.jsx
+│   ├── 📄 App.jsx  # Root React component
+│   ├── 📄 AppsMap.jsx # Mini-apps are mapped here
+│   └── 📄 main.jsx
+├── 📄 .gitattributes
+├── 🚫 .gitignore
+├── 📜 LICENSE
+├── 📖 README.md
+├── 📄 eslint.config.js
+├── 🌐 index.html
+├── 📄 package-lock.json
+├── 📄 package.json
+└── 📄 vite.config.js
+```
 
 ---
 
@@ -66,6 +118,6 @@ This is a personal lab, but feel free to fork it or suggest improvements if you 
 
 ---
 
-## 📄 License
+## License
 
 MIT License. You are free to use or adapt this lab for learning purposes.
