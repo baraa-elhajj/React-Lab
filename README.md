@@ -66,7 +66,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [Vite](https://vitejs.dev/
 ├── 📁 .git/ 🚫 (auto-hidden)
 ├── 📁 node_modules/ 🚫 (auto-hidden)
 ├── 📁 public/
-│   ├── 📁 images/  # add images used in your apps
+│   ├── 📁 images/  # Add your images here
 │   └── 🖼️ vite.svg
 ├── 📁 src/ # Main application source code
 │   ├── 📁 apps/    # Add your mini-apps here
@@ -81,7 +81,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [Vite](https://vitejs.dev/
 │   │   ├── 📄 ThemeToggler.jsx
 │   │   ├── 📄 VideoPlayer.jsx
 │   │   ├── 📄 data.jsx
-│   ├── 📁 components/  # Reusable UI components
+│   ├── 📁 components/  # Reusable components
 │   │   ├── 📁 context/
 │   │   │   └── 📄 TodoContext.jsx
 │   │   └── 📁 ui/
