@@ -7,11 +7,12 @@ A personal playground of mini React apps and experiments.
 
 ## Features
 
-- Built with **React** and **Vite**
-- Multiple mini-apps in one project
-- Showcases common React patterns and hooks
-- A great place to experiment and learn
-- You can easily add your own mini apps and test them
+- Built with **React** and **Vite**.
+- Multiple mini-apps in one project.
+- Showcases common React patterns and hooks.
+- A great place to experiment and learn.
+- You can easily add your own mini apps and test them.
+- You can as well display badges indicating which React features are used in the app.
 
 ---
 
