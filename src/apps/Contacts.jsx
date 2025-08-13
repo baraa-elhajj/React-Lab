@@ -53,7 +53,7 @@ export default function App() {
         description="A simple contacts app using state and ref hooks."
         badgesIds={[5, 2, 8]}
       />
-      <Box maxW="500px" mx="auto" mt={10} p={5} borderWidth="1px" rounded="lg">
+      <Box maxW="500px" mx="auto" mt={2} p={5} borderWidth="1px" rounded="lg">
         <Heading mb={4}>Contacts</Heading>
         <VStack spacing={3}>
           <Input
