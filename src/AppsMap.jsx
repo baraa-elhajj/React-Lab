@@ -18,6 +18,7 @@ import AdvancedTodo from "./apps/AdvancedTodo";
 import Ref from "./apps/Ref";
 import VideoPlayer from "./apps/VideoPlayer";
 import PerformanceLoop from "./apps/PerformanceLoop";
+import Contacts from "./apps/Contacts";
 
 const appsMap = {
   Gallery: <Gallery />,
@@ -40,6 +41,7 @@ const appsMap = {
   Ref: <Ref />,
   "Video Player": <VideoPlayer />,
   "Performance Loop": <PerformanceLoop />,
+  Contacts: <Contacts />,
 };
 
 export default appsMap;
