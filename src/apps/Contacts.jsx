@@ -61,7 +61,7 @@ export default function App() {
         description="A simple contacts app using state and ref hooks."
         badgesIds={[5, 2, 8]}
       />
-      <Flex maxW="600px" mt={2} p={5} borderWidth="1px" rounded="lg">
+      <Flex maxW="550px" mt={2} p={5} borderWidth="1px" rounded="lg">
         {/* Contacts List */}
         <Box flex="1" pr={4}>
           <Heading mb={4}>Contacts</Heading>
@@ -142,9 +142,11 @@ export default function App() {
                 value={editPhone}
                 onChange={(e) => setEditPhone(e.target.value)}
               />
-              <HStack w="100%" justify="flex-end">
-                <Button onClick={handleCancelEdit}>Cancel</Button>
-                <Button colorScheme="blue" onClick={handleSaveEdit}>
+              <HStack w="100%">
+                <Button w="50%" onClick={handleCancelEdit}>
+                  Cancel
+                </Button>
+                <Button w="47%" colorScheme="blue" onClick={handleSaveEdit}>
                   Save
                 </Button>
               </HStack>
