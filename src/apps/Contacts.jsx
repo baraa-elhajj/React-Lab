@@ -69,7 +69,7 @@ export default function App() {
     <>
       <Header
         description="A simple contacts app using state and ref hooks."
-        badgesIds={[5, 2, 8]}
+        badgesIds={[5, 2, 8, 9]}
       />
       <Flex
         maxW="550px"
