@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Heading,
@@ -16,12 +16,21 @@ import { Edit, Trash } from "lucide-react";
 import Header from "../components/ui/custom/Header";
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  // Load contacts from localStorage
+  const [contacts, setContacts] = useState(() => {
+    const contactsList = localStorage.getItem("contacts");
+    return contactsList ? JSON.parse(contactsList) : [];
+  });
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [editingIndex, setEditingIndex] = useState(null);
   const [editName, setEditName] = useState("");
   const [editPhone, setEditPhone] = useState("");
+
+  // Update localStorage
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   const handleAddContact = () => {
     if (!name.trim() || !phone.trim()) {
