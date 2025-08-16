@@ -53,8 +53,10 @@ export default function App() {
       alert("You must provide both name and phone number!");
       return;
     }
+
     const updated = [...contacts];
     updated[editingIndex] = { name: editName, phone: editPhone };
+
     setContacts(updated);
     setEditingIndex(null);
     setEditName("");
@@ -68,8 +70,8 @@ export default function App() {
   return (
     <>
       <Header
-        description="A simple contacts app using state and ref hooks."
-        badgesIds={[5, 2, 8, 9]}
+        description="A simple contacts app using state and effect hooks."
+        badgesIds={[5, 2, 9]}
       />
       <Flex
         maxW="550px"
