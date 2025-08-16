@@ -40,6 +40,10 @@ export default function App() {
   };
 
   const handleSaveEdit = () => {
+    if (!name.trim() || !phone.trim()) {
+      alert("You must provide both name and phone number!");
+      return;
+    }
     const updated = [...contacts];
     updated[editingIndex] = { name: editName, phone: editPhone };
     setContacts(updated);
@@ -121,7 +125,10 @@ export default function App() {
                           <Dialog.Header>
                             <Dialog.Title>Edit Contact</Dialog.Title>
                             <Dialog.CloseTrigger asChild>
-                              <CloseButton size="sm" />
+                              <CloseButton
+                                size="sm"
+                                onClick={() => setEditingIndex(null)}
+                              />
                             </Dialog.CloseTrigger>
                           </Dialog.Header>
                           <Dialog.Body>
