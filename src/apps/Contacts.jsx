@@ -8,6 +8,9 @@ import {
   Button,
   Text,
   Flex,
+  CloseButton,
+  Portal,
+  Dialog,
 } from "@chakra-ui/react";
 import { Edit, Trash } from "lucide-react";
 import Header from "../components/ui/custom/Header";
@@ -45,12 +48,6 @@ export default function App() {
     setEditPhone("");
   };
 
-  const handleCancelEdit = () => {
-    setEditingIndex(null);
-    setEditName("");
-    setEditPhone("");
-  };
-
   const handleDelete = (index) => {
     setContacts(contacts.filter((_, i) => i !== index));
   };
@@ -61,12 +58,18 @@ export default function App() {
         description="A simple contacts app using state and ref hooks."
         badgesIds={[5, 2, 8]}
       />
-      <Flex maxW="550px" mt={2} p={5} borderWidth="1px" rounded="lg">
-        {/* Contacts List */}
-        <Box flex="1" pr={4}>
+      <Flex
+        maxW="550px"
+        mt={2}
+        p={5}
+        borderWidth="1px"
+        rounded="lg"
+        direction="column"
+      >
+        <Box flex="1">
           <Heading mb={4}>Contacts</Heading>
-          {/* Add contact form */}
-          <VStack spacing={3} mb={6}>
+          {/* Add Contact */}
+          <VStack spacing="3" mb="6">
             <Input
               placeholder="Full Name"
               value={name}
@@ -82,12 +85,12 @@ export default function App() {
             </Button>
           </VStack>
 
-          {/* Contact items */}
-          <VStack spacing={3} align="stretch">
+          {/* Contact List */}
+          <VStack spacing="3" align="stretch">
             {contacts.map((contact, index) => (
               <HStack
                 key={index}
-                p={3}
+                p="3"
                 borderWidth="1px"
                 rounded="md"
                 justify="space-between"
@@ -99,60 +102,73 @@ export default function App() {
                   </Text>
                 </Box>
                 <HStack>
-                  <Button
-                    colorScheme="blue"
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => handleEditClick(index)}
-                  >
-                    <Edit size={18} />
-                  </Button>
+                  <Dialog.Root open={editingIndex === index}>
+                    <Dialog.Trigger asChild>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        onClick={() => handleEditClick(index)}
+                      >
+                        <Edit size="18" />
+                      </Button>
+                    </Dialog.Trigger>
+
+                    {/* Edit Contact */}
+                    <Portal>
+                      <Dialog.Backdrop />
+                      <Dialog.Positioner>
+                        <Dialog.Content>
+                          <Dialog.Header>
+                            <Dialog.Title>Edit Contact</Dialog.Title>
+                            <Dialog.CloseTrigger asChild>
+                              <CloseButton size="sm" />
+                            </Dialog.CloseTrigger>
+                          </Dialog.Header>
+                          <Dialog.Body>
+                            <VStack spacing="3" align="stretch">
+                              <Text fontSize="sm">Full Name</Text>
+                              <Input
+                                placeholder="Full Name"
+                                value={editName}
+                                onChange={(e) => setEditName(e.target.value)}
+                                mb="2"
+                              />
+                              <Text fontSize="sm">Phone Number</Text>
+                              <Input
+                                placeholder="Phone Number"
+                                value={editPhone}
+                                onChange={(e) => setEditPhone(e.target.value)}
+                              />
+                            </VStack>
+                          </Dialog.Body>
+                          <Dialog.Footer>
+                            <Dialog.ActionTrigger asChild>
+                              <Button onClick={() => setEditingIndex(null)}>
+                                Cancel
+                              </Button>
+                            </Dialog.ActionTrigger>
+                            <Button colorScheme="blue" onClick={handleSaveEdit}>
+                              Save
+                            </Button>
+                          </Dialog.Footer>
+                        </Dialog.Content>
+                      </Dialog.Positioner>
+                    </Portal>
+                  </Dialog.Root>
+
                   <Button
                     colorScheme="red"
                     size="sm"
                     variant="ghost"
                     onClick={() => handleDelete(index)}
                   >
-                    <Trash size={18} />
+                    <Trash size="18" />
                   </Button>
                 </HStack>
               </HStack>
             ))}
           </VStack>
         </Box>
-
-        {/* Edit Panel */}
-        {editingIndex !== null && (
-          <Box
-            flex="1"
-            pl={4}
-            borderLeftWidth="1px"
-            borderColor="gray.200"
-            ml={4}
-          >
-            <Heading mb={4}>Edit Contact</Heading>
-            <VStack spacing={3}>
-              <Input
-                placeholder="Full Name"
-                value={editName}
-                onChange={(e) => setEditName(e.target.value)}
-              />
-              <Input
-                placeholder="Phone Number"
-                value={editPhone}
-                onChange={(e) => setEditPhone(e.target.value)}
-              />
-              <HStack w="100%">
-                <Button w="50%" onClick={handleCancelEdit}>
-                  Cancel
-                </Button>
-                <Button w="47%" colorScheme="blue" onClick={handleSaveEdit}>
-                  Save
-                </Button>
-              </HStack>
-            </VStack>
-          </Box>
-        )}
       </Flex>
     </>
   );
