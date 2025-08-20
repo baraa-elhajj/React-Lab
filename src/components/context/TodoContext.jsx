@@ -17,9 +17,11 @@ export function TodoProvider({ children }) {
   const [todos, dispatch] = useReducer(todosReducer, []);
 
   return (
-    <TodoContext value={todos}>
-      <TodoDispatchContext value={dispatch}>{children}</TodoDispatchContext>
-    </TodoContext>
+    <TodoContext.Provider value={todos}>
+      <TodoDispatchContext.Provider value={dispatch}>
+        {children}
+      </TodoDispatchContext.Provider>
+    </TodoContext.Provider>
   );
 }
 
