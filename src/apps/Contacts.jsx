@@ -49,13 +49,13 @@ export default function App() {
   };
 
   const handleSaveEdit = () => {
-    if (!name.trim() || !phone.trim()) {
+    const updated = [...contacts];
+    updated[editingIndex] = { name: editName, phone: editPhone };
+
+    if (!editName.trim() || !editPhone.trim()) {
       alert("You must provide both name and phone number!");
       return;
     }
-
-    const updated = [...contacts];
-    updated[editingIndex] = { name: editName, phone: editPhone };
 
     setContacts(updated);
     setEditingIndex(null);
