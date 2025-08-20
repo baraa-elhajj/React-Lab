@@ -93,6 +93,7 @@ export default function App() {
             <Input
               placeholder="Phone Number"
               value={phone}
+              type="number"
               onChange={(e) => setPhone(e.target.value)}
             />
             <Button colorScheme="blue" onClick={handleAddContact} w="100%">
@@ -155,6 +156,7 @@ export default function App() {
                               <Input
                                 placeholder="Phone Number"
                                 value={editPhone}
+                                type="number"
                                 onChange={(e) => setEditPhone(e.target.value)}
                               />
                             </VStack>
