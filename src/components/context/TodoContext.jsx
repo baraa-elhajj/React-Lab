@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const TodoContext = createContext(null);
 const TodoDispatchContext = createContext(null);
@@ -12,9 +12,18 @@ export function useTodoDispatch() {
   return useContext(TodoDispatchContext);
 }
 
+function init(todos) {
+  const stored = localStorage.getItem("todos");
+  return stored ? JSON.parse(stored) : todos;
+}
+
 // Context Provider
 export function TodoProvider({ children }) {
-  const [todos, dispatch] = useReducer(todosReducer, []);
+  const [todos, dispatch] = useReducer(todosReducer, [], init);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <TodoContext.Provider value={todos}>
