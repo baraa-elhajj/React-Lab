@@ -12,7 +12,7 @@ A personal playground of mini React apps and experiments.
 - Showcases common React patterns and hooks.
 - A great place to experiment and learn.
 - You can easily add your own mini apps and test them.
-- You can as well display badges indicating which React features are used in the app.
+- You can also display badges indicating which React features are used in the app.
 
 ---
 
@@ -23,6 +23,7 @@ A personal playground of mini React apps and experiments.
 - **Search Bar** – Real-time list filtering applying state lifting
 - **Advanced Todo** – More advanced state management using a reducer/context combination.
 - **Performance Loop** – Performance test using `useMemo`
+- **Contacts** - Add, view, edit, and delete phone contacts.
 - and more...
 
 ---
