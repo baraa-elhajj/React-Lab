@@ -60,7 +60,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [Vite](https://vitejs.dev/
 
 ---
 
-## Project Structure
+## Preview
 
 ```
 ├── 📁 .git/ 🚫 (auto-hidden)
